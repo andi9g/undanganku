@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../vendor/livewire/flux/**/*.blade.php";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Re-assign Flux's gray of choice... */
+/* Re-assign Flux's gray of choice... */
+@theme {
+    --color-zinc-50: var(--color-gray-50);
+    --color-zinc-100: var(--color-gray-100);
+    --color-zinc-200: var(--color-gray-200);
+    --color-zinc-300: var(--color-gray-300);
+    --color-zinc-400: var(--color-gray-400);
+    --color-zinc-500: var(--color-gray-500);
+    --color-zinc-600: var(--color-gray-600);
+    --color-zinc-700: var(--color-gray-700);
+    --color-zinc-800: var(--color-gray-800);
+    --color-zinc-900: var(--color-gray-900);
+    --color-zinc-950: var(--color-gray-950);
+}
+
+@theme {
+    --color-jawa-dark: #121212;
+    --color-jawa-gold: #c5a059;
+    --color-jawa-gold-light: #e2c792;
+    --color-jawa-beige: #fdf5e6;
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0) rotate(6deg); }
+        50% { transform: translateY(-15px) rotate(8deg); }
+    }
+    --animate-float-frame: floating 4s ease-in-out infinite;
+
+    --color-accent: var(--color-sky-600);
+    --color-accent-content: var(--color-sky-600);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-sky-600);
+        --color-accent-content: var(--color-sky-400);
+        --color-accent-foreground: var(--color-white);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+
+
+
+@layer utilities {
+  /* DEFAULT: scrollbar disembunyikan */
+    .nav-item {
+        @apply flex flex-col items-center justify-center gap-1 transition-all duration-300 py-2 px-1;
+    }
+
+    .nav-text {
+        @apply text-[10px] uppercase tracking-widest font-medium text-jawa-gold-light/70;
+    }
+
+    .nav-item:hover .nav-text {
+        @apply text-jawa-gold;
+    }
+
+    .nav-item span:first-child {
+        @apply text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all;
+    }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* md ke atas: scrollbar muncul */
+  @media (min-width: 768px) {
+    .md\:scrollbar-show::-webkit-scrollbar {
+      display: block;
+    }
+
+    .md\:scrollbar-show {
+      -ms-overflow-style: auto;
+      scrollbar-width: auto;
+    }
+  }
+
+  /* Delay animasi biasanya lebih fleksibel ditaruh di utilities */
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    /* ... media query scrollbar kamu ... */
+
+
+    @keyframes fadeUp {
+        from { opacity:0; transform:translateY(40px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+
+    .animate-fade-up {
+        animation: fadeUp 1.4s ease forwards;
+    }
+
+    @keyframes spinSlow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .animate-spin-slow {
+        animation: spinSlow 6s linear infinite;
+    }
+
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(.22,1,.36,1),
+                opacity 0.7s ease,
+                filter 0.7s ease;
+    transform-style: preserve-3d;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    pointer-events: none;
+}
+    
+
+
+}
+
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
