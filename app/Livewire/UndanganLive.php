@@ -16,6 +16,8 @@ class UndanganLive extends Component
     use WithPagination;
 
     public $namapengantinpria, $namapengantinwanita, $tanggal;
+    public $namalengkappengantinpria, $namalengkappengantinwanita;
+    public $statusanakwanita, $statusanakpria;
     
     public $search = '';
     
@@ -48,6 +50,10 @@ class UndanganLive extends Component
         $this->validate([
             'namapengantinpria' => 'required',
             'namapengantinwanita' => 'required',
+            'namalengkappengantinpria' => 'required',
+            'namalengkappengantinwanita' => 'required',
+            'statusanakwanita' => 'required',
+            'statusanakpria' => 'required',
             'tanggal' => 'required',
         ]);
 
@@ -62,6 +68,10 @@ class UndanganLive extends Component
         identitaspengantinM::create([
             'namapengantinpria' => $this->namapengantinpria,
             'namapengantinwanita' => $this->namapengantinwanita,
+            'namalengkappengantinpria' => $this->namalengkappengantinpria,
+            'namalengkappengantinwanita' => $this->namalengkappengantinwanita,
+            'statusanakwanita' => $this->statusanakwanita,
+            'statusanakpria' => $this->statusanakpria,
             'idundangan' => $undangan->idundangan,
         ]);
 

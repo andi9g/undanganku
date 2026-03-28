@@ -7,19 +7,25 @@ use App\Models\undanganM;
 use App\Models\galleryM;
 use App\Models\rekeningM;
 use App\Models\gaunM;
+use App\Models\orangtuaM;
 use App\Models\lokasiM;
+use App\Models\pasfotoM;
 use App\Models\identitaspengantinM;
 use App\Attributes\Locked;
 use Auth;
+use Flux;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 use Livewire\Attributes\Validate;
+use Livewire\WithPagination;
+
 
 
 class DetailLive extends Component
 {
     use WithFileUploads;
+
     #[Validate('image|max:10000')] 
     #[Validate(['photos.*' => 'image|max:10000'])]
     
@@ -28,6 +34,10 @@ class DetailLive extends Component
     public $idundangan, $bank;
 
     public $namapengantinpria, $namapengantinwanita, $tanggal, $namagaun, $waktugaun, $namabank, $nomorrekening, $atasnama, $namalokasi, $alamat, $lat, $long;
+    public $namabapak, $namaibu, $fotop, $fotol;
+    public $namalengkappengantinpria, $namalengkappengantinwanita;
+    public $statusanakwanita, $statusanakpria;
+    public $pasfotol, $pasfotop;
 
     public $photo,$fotopengantin, $gaun;
     public $photos = [];
@@ -41,6 +51,10 @@ class DetailLive extends Component
         $this->tanggal = $undangan->tanggal;
         $this->namapengantinpria = $undangan->identitaspengantin->namapengantinpria;
         $this->namapengantinwanita = $undangan->identitaspengantin->namapengantinwanita;
+        $this->namalengkappengantinpria = $undangan->identitaspengantin->namalengkappengantinpria;
+        $this->namalengkappengantinwanita = $undangan->identitaspengantin->namalengkappengantinwanita;
+        $this->statusanakwanita = $undangan->identitaspengantin->statusanakwanita;
+        $this->statusanakpria = $undangan->identitaspengantin->statusanakpria;
         $this->namagaun = "";
         $this->waktugaun = "";
         $this->namalokasi = "";
@@ -70,6 +84,19 @@ class DetailLive extends Component
 
         $this->namalokasi = $datalokasi->namalokasi ?? "";
         $this->alamat = $datalokasi->alamat ?? "";
+
+        $this->fotop = $undangan->pasfoto->where("pihak", "P")->first()?->foto;
+        $this->fotol = $undangan->pasfoto->where("pihak", "L")->first()?->foto;
+
+
+        $orangtuaP = orangtuaM::where([
+            "idundangan"=>$this->idundangan,
+            "pihak" => "P"
+            ])->get();
+        $orangtuaL = orangtuaM::where([
+            "idundangan"=>$this->idundangan,
+            "pihak" => "L"
+            ])->get();
         
 
         return view('livewire.detail-live', [
@@ -78,6 +105,8 @@ class DetailLive extends Component
             'gallery' => $gallery,
             'datagaun' => $datagaun,
             'databank' => $databank,
+            'orangtuaP' => $orangtuaP,
+            'orangtuaL' => $orangtuaL,
         ]);
     }
 
@@ -152,6 +181,61 @@ class DetailLive extends Component
     
 
     }
+
+
+    public function removePhotol()
+    {
+        $this->pasfotol->delete();
+        $this->pasfotol = null;
+    }
+    public function updatepasfotol()
+    {
+        $this->validate([
+            'pasfotol' => 'required',
+        ],[
+            "required" => "Field wajib di isi.",
+        ]);
+
+        $path = $this->pasfotol->store("photos", "public");
+        pasfotoM::updateOrCreate([
+            "idundangan" => $this->idundangan,
+            "pihak" => "L",
+        ], [
+            "foto" => $path
+        ]);
+
+        $this->reset("pasfotol");
+
+        LivewireAlert::title('Success')->success()->show();
+        
+    }
+    public function removePhotop()
+    {
+        $this->pasfotop->delete();
+        $this->pasfotop = null;
+    }
+    public function updatepasfotop()
+    {
+        $this->validate([
+            'pasfotop' => 'required',
+        ],[
+            "required" => "Field wajib di isi.",
+        ]);
+
+        $path = $this->pasfotop->store("photos", "public");
+        pasfotoM::updateOrCreate([
+            "idundangan" => $this->idundangan,
+            "pihak" => "P",
+        ], [
+            "foto" => $path
+        ]);
+
+        $this->reset("pasfotop");
+
+        LivewireAlert::title('Success')->success()->show();
+        
+    }
+
 
     public function save_images()
     {
@@ -298,6 +382,53 @@ class DetailLive extends Component
         ]);
 
         $this->reset(['namalokasi', 'alamat']);
+
+        LivewireAlert::title('Success')->success()->show();
+    }
+
+    public function updateortup()
+    {
+        $this->validate([
+            'namabapak' => 'required',
+            'namaibu' => 'required',
+        ],[
+            "required" => "Field wajib di isi.",
+        ]);
+
+        orangtuaM::updateOrCreate([
+            "idundangan" => $this->idundangan,
+            "pihak" => "P",
+        ], [
+            "namabapak" => $this->namabapak,
+            "namaibu" => $this->namaibu,
+        ]);
+
+        $this->reset(["namabapak", "namaibu"]);
+
+        Flux::modals()->close();
+
+        LivewireAlert::title('Success')->success()->show();
+    }
+    public function updateortul()
+    {
+        $this->validate([
+            'namabapak' => 'required',
+            'namaibu' => 'required',
+        ],[
+            "required" => "Field wajib di isi.",
+        ]);
+
+        orangtuaM::updateOrCreate([
+            "idundangan" => $this->idundangan,
+            "pihak" => "L",
+        ], [
+            "namabapak" => $this->namabapak,
+            "namaibu" => $this->namaibu,
+        ]);
+
+        $this->reset(["namabapak", "namaibu"]);
+
+        Flux::modals()->close();
 
         LivewireAlert::title('Success')->success()->show();
     }

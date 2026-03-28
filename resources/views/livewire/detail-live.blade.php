@@ -8,8 +8,9 @@
                 class="w-max min-w-full px-4 "
             >
                 <flux:tab name="home" icon="home"> Halaman Utama</flux:tab>
+                <flux:tab name="pasfoto" icon="user-circle">Pasfoto</flux:tab>
                 <flux:tab name="gallery" icon="photo">Gallery</flux:tab>
-                <flux:tab name="gaun" icon="shopping-bag">Gaun</flux:tab>
+                <flux:tab name="orangtua" icon="users">Orang Tua</flux:tab>
                 <flux:tab name="rekening" icon="credit-card">Rekening</flux:tab>
                 <flux:tab name="lokasi2" icon="map-pin">Lokasi</flux:tab>
             </flux:tabs>
@@ -18,7 +19,95 @@
 
 
 
+        <flux:tab.panel class="-mt-2 p-5" name="pasfoto" >
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+               <flux:kanban.card>
+                <flux:heading size="xl" level="1" class="mb-3">Pasfoto, Pria</flux:heading>
 
+                <img 
+                src="{{ Storage::url($fotol) }}" 
+                alt="Contoh Gambar Pasfoto"
+                class="
+                    w-[200px] 
+                    h-[200px] 
+                    rounded-full 
+                    object-cover 
+                    object-center
+                    shadow-2xl
+                    mx-auto
+                    border-8
+                    border-white
+                "
+                />
+
+                <form wire:submit="updatepasfotol">
+                    <flux:file-upload wire:model="pasfotol" label="Upload file">
+                        <flux:file-upload.dropzone heading="Drop file here or click to browse" text="JPG, PNG, GIF up to 10MB" />
+                    </flux:file-upload>
+
+                    <div class="mt-3 flex flex-col gap-2">
+                        @if ($pasfotol)
+                            <flux:file-item
+                                :heading="$pasfotol->getClientOriginalName()"
+                                :image="$pasfotol->temporaryUrl()"
+                                :size="$pasfotol->getSize()"
+                            >
+                                <x-slot name="actions">
+                                    <flux:file-item.remove wire:click="removePhotol" aria-label="{{ 'Remove file: ' . $pasfotol->getClientOriginalName() }}" />
+                                </x-slot>
+                            </flux:file-item>
+                        @endif
+                    </div>
+
+                    <flux:button type="submit" variant="primary" color="blue" class="w-full">UPDATE</flux:button>
+                </form>
+
+               </flux:kanban.card>
+               <flux:kanban.card>
+                <flux:heading size="xl" level="1" class="mb-3">Pasfoto, Wanita</flux:heading>
+
+                <img 
+                src="{{ Storage::url($fotop) }}" 
+                alt="Contoh Gambar Pasfoto"
+                class="
+                    w-[200px] 
+                    h-[200px] 
+                    rounded-full 
+                    object-cover 
+                    object-center
+                    shadow-2xl
+                    mx-auto
+                    border-8
+                    border-white
+                "
+                />
+
+                <form wire:submit="updatepasfotop">
+                    <flux:file-upload wire:model="pasfotop" label="Upload file">
+                        <flux:file-upload.dropzone heading="Drop file here or click to browse" text="JPG, PNG, GIF up to 10MB" />
+                    </flux:file-upload>
+
+                    <div class="mt-3 flex flex-col gap-2">
+                        @if ($pasfotop)
+                            <flux:file-item
+                                :heading="$pasfotop->getClientOriginalName()"
+                                :image="$pasfotop->temporaryUrl()"
+                                :size="$pasfotop->getSize()"
+                            >
+                                <x-slot name="actions">
+                                    <flux:file-item.remove wire:click="removePhotop" aria-label="{{ 'Remove file: ' . $pasfotop->getClientOriginalName() }}" />
+                                </x-slot>
+                            </flux:file-item>
+                        @endif
+                    </div>
+
+                    <flux:button type="submit" variant="primary" color="blue" class="w-full">UPDATE</flux:button>
+                </form>
+
+               </flux:kanban.card>
+                
+            </div>
+        </flux:tab.panel>
 
 
 
@@ -61,20 +150,48 @@
                 </div>
 
                 <div class="space-y-5">
+                    <flux:separator text="Pria"/>
                     <flux:input 
-                    label='Nama Pengantin Pria' 
-                    placeholder='masukan nama pengantin pria' 
+                    label='Nama Pria' 
+                    placeholder='null' 
                     wire:model='namapengantinpria'
                     readonly variant="filled"
                     :invalid="$errors->has('namapengantinpria')"/>
+                    <flux:input 
+                    label='Nama Lengkap Pengantin Pria' 
+                    placeholder='null' 
+                    wire:model='namalengkappengantinpria'
+                    readonly variant="filled"
+                    :invalid="$errors->has('namalengkappengantinpria')"/>
+                    <flux:input 
+                    label='Status Pria' 
+                    placeholder='null' 
+                    wire:model='statusanakpria'
+                    readonly variant="filled"
+                    :invalid="$errors->has('statusanakpria')"/>
+
+                    <flux:separator text="Wanita"/>
                     
                     <flux:input 
-                    label='Nama Pengantin Wanita' 
-                    placeholder='masukan nama pengantin wanita' 
+                    label='Nama Wanita' 
+                    placeholder='null' 
                     wire:model='namapengantinwanita'
                     readonly variant="filled"
                     :invalid="$errors->has('namapengantinwanita')"/>
+                    <flux:input 
+                    label='Nama Lengkap Pengantin Wanita' 
+                    placeholder='null' 
+                    wire:model='namalengkappengantinwanita'
+                    readonly variant="filled"
+                    :invalid="$errors->has('namalengkappengantinwanita')"/>
+                    <flux:input 
+                    label='Status Wanita' 
+                    placeholder='null' 
+                    wire:model='statusanakwanita'
+                    readonly variant="filled"
+                    :invalid="$errors->has('statusanakwanita')"/>
 
+                    <flux:separator text="Tanggal Pernikahan"/>
                     <flux:date-picker label="Tanggal Acara"
                     readonly variant="filled" disabled
                     wire:model='tanggal' :invalid="$errors->has('tanggal')" />
@@ -206,92 +323,126 @@
         
         
         
-        <flux:tab.panel class="-mt-2" name="gaun">
+        <flux:tab.panel class="-mt-2" name="orangtua">
 
-            <div class="grid grid-cols-1 md:grid-cols-[35%_65%] gap-5 item-start">
-                <div class="grid grid-cols-1 gap-5">
-                    <form wire:submit="save_gaun" class="space-y-3">
-
-                        <flux:input 
-                        label='Nama Gaun' 
-                        placeholder='masukan nama gaun' 
-                        wire:model='namagaun'
-                        :invalid="$errors->has('namagaun')"/>
+            
+        
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <flux:kanban.card>
+                    <flux:heading size="xl" level="1" class="mb-3">Orang Tua, Wanita</flux:heading>
+                    <flux:modal.trigger name="orangtuaWanita" class="">
+                        <flux:button type="submit" variant="primary" color="blue" class="mb-4">Lengkapi Data Orang Tua</flux:button>
+                    </flux:modal.trigger>
+                    
+                    <flux:modal name="orangtuaWanita" class="md:w-lg">
                         
-                        <flux:select variant="listbox" searchable placeholder="Pilih Gaun..." label="Waktu Pemakaian" wire:model="waktugaun" :invalid="$errors->has('waktugaun')">
-                            <flux:select.option>Pagi</flux:select.option>
-                            <flux:select.option>Siang</flux:select.option>
-                            <flux:select.option>Sore</flux:select.option>
-                            <flux:select.option>Malam</flux:select.option>
-                        </flux:select>
-
-
-                        <flux:file-upload wire:model="gaun" label="Upload file" >
-                            <flux:file-upload.dropzone heading="Drop file here or click to browse" text="JPG, PNG, GIF up to 10MB" />
-                        </flux:file-upload>
-
-                        <div class="mt-3 flex flex-col gap-2">
-                            @if ($gaun)
-                                <flux:file-item
-                                    :heading="$gaun->getClientOriginalName()"
-                                    :image="$gaun->temporaryUrl()"
-                                    :size="$gaun->getSize()"
-                                >
-                                    <x-slot name="actions">
-                                        <flux:file-item.remove wire:click="removeGaun" aria-label="{{ 'Remove file: ' . $gaun->getClientOriginalName() }}" />
-                                    </x-slot>
-                                </flux:file-item>
-                            @endif
-                        </div>
-
-                        <flux:button type="submit" variant="primary" color="blue" class="w-full">UPDATE GAMBAR</flux:button>
-                    </form>
-                </div>
-
-                <!-- HIGHLIGHT MOMENTS -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-                    @foreach ($datagaun as $item)
-                    <div class="group relative overflow-hidden
-                                rounded-3xl border border-jawa-gold/20
-                                bg-black/20 backdrop-blur-sm
-                                transition-all duration-700
-                                hover:-translate-y-2
-                                hover:border-jawa-gold
-                                hover:shadow-[0_30px_60px_-15px_rgba(197,160,89,0.45)]
-
-                                max-w-[85%] sm:max-w-[70%] md:max-w-none
-                                mx-auto">
-
-                        <img src="{{ asset("storage/". $item->fotogaun) }}"
-                            class="w-full h-auto md:h-[420px]
-                                    object-cover
-                                    transition duration-700 ease-out
-                                    group-hover:scale-110" />
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
-
-                        <div class="absolute bottom-6 left-6 right-6">
-                            <p class="text-jawa-gold text-lg tracking-[0.3em] uppercase mb-1 text-3xl">
-                                <b>{{ $item->waktugaun }}</b>
-                            </p>
-                            <h4 class="text-white font-serif text-2xl">
-                                {{ $item->namagaun }}
-                            </h4>
-
-                            <flux:button as='button' variant='primary' class="w-full" color='red' icon='trash' wire:click="hapusgaun({{ $item->idgallery }})">Hapus</flux:button>
+                        <form wire:submit="updateortup" class="space-y-6">
+                            <div>
+                                <flux:heading size="lg">Lengkapi Data Orang Tua, Wanita</flux:heading>
+                                <flux:text class="mt-2">Silahkan lengkapi form dibawah ini.</flux:text>
+                            </div>
                             
-                        </div>
-                    </div>
+                            <flux:input 
+                            label='Nama Bapak' 
+                            placeholder='Masukan Nama Bapak' 
+                            wire:model='namabapak'
+                            type="text"
+                            :invalid="$errors->has('namabapak')"/>
+
+                            <flux:input 
+                            label='Nama Ibu' 
+                            placeholder='Masukan Nama Ibu' 
+                            wire:model='namaibu'
+                            type="text"
+                            :invalid="$errors->has('namaibu')"/>
+                    
+                            <div class="flex">
+                                <flux:spacer />
+                    
+                                <flux:button type="submit" variant="primary" color="blue" class="w-full">Tambah</flux:button>
+                            </div>
+                        </form>
+                    </flux:modal>    
+
+
+                    <flux:table >
+                        <flux:table.columns>
+                            <flux:table.column align="center">Nama Bapak</flux:table.column>
+                            <flux:table.column align="center">Nama Ibu</flux:table.column>
+                        </flux:table.columns>
+                    
+                        <flux:table.rows>
+                            @foreach ($orangtuaP as $item)
+                                <flux:table.cell align="center" width="50%" >{{ $item->namabapak }}</flux:table.cell>
+                                <flux:table.cell align="center" width="50%">{{ $item->namaibu }}</flux:table.cell>
+                            @endforeach
+                        </flux:table.rows>
+                    </flux:table>
+
+
+                    
+                </flux:kanban.card>
+                    
+                <flux:kanban.card>
+                    <flux:heading size="xl" level="1" class="mb-3">Orang Tua, Pria</flux:heading>
+                    <flux:modal.trigger name="orangtuaPria" class="">
+                        <flux:button type="submit" variant="primary" color="blue" class="mb-4">Lengkapi Data Orang Tua</flux:button>
+                    </flux:modal.trigger>
+                    
+                    <flux:modal name="orangtuaPria" class="md:w-lg">
                         
-                    @endforeach
+                        <form wire:submit="updateortul" class="space-y-6">
+                            <div>
+                                <flux:heading size="lg">Lengkapi Data Orang Tua Pria</flux:heading>
+                                <flux:text class="mt-2">Silahkan lengkapi form dibawah ini.</flux:text>
+                            </div>
+                            
+                            <flux:input 
+                            label='Nama Bapak' 
+                            placeholder='Masukan Nama Bapak' 
+                            wire:model='namabapak'
+                            type="text"
+                            :invalid="$errors->has('namabapak')"/>
 
-                </div>
+                            <flux:input 
+                            label='Nama Ibu' 
+                            placeholder='Masukan Nama Ibu' 
+                            wire:model='namaibu'
+                            type="text"
+                            :invalid="$errors->has('namaibu')"/>
+                    
+                            <div class="flex">
+                                <flux:spacer />
+                    
+                                <flux:button type="submit" variant="primary" color="blue" class="w-full">Tambah</flux:button>
+                            </div>
+                        </form>
+                    </flux:modal>    
 
-                
 
+                    <flux:table >
+                        <flux:table.columns>
+                            <flux:table.column align="center">Nama Bapak</flux:table.column>
+                            <flux:table.column align="center">Nama Ibu</flux:table.column>
+                        </flux:table.columns>
+                    
+                        <flux:table.rows>
+                            @foreach ($orangtuaL as $item)
+                                <flux:table.cell align="center" width="50%" >{{ $item->namabapak }}</flux:table.cell>
+                                <flux:table.cell align="center" width="50%">{{ $item->namaibu }}</flux:table.cell>
+                            @endforeach
+                        </flux:table.rows>
+                    </flux:table>
+                </flux:kanban.card>
                 
             </div>
+       
+
+               
+
+                
+
     
         </flux:tab.panel>
         

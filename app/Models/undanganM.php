@@ -41,4 +41,12 @@ class undanganM extends Model
     {
         return $this->hasMany(sebarundanganM::class, 'idundangan', 'idundangan');
     }
+    public function orangtua()
+    {
+        return $this->hasMany(orangtuaM::class, 'idundangan', 'idundangan');
+    }
+    public function pasfoto()
+    {
+        return $this->hasMany(pasfotoM::class, 'idundangan', 'idundangan');
+    }
 }

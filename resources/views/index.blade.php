@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Undangan Pernikahan</title>
+    <title>Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <meta property="og:title" content="Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}" />
+    <meta property="og:image" content="{{ asset('storage/'. $undangan->identitaspengantin->fotopengantin??'') }}" />
+    <meta property="og:type" content="website" />
     <style>
         html {
             font-size: 15px;
@@ -88,7 +91,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                 
                 <a href="#home" class="nav-item min-w-[64px] group flex flex-col items-center">
                     <span class="text-xl group-hover:scale-110 mt-3 transition-transform">🏠</span>
-                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Home</span>
+                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">TOP</span>
                 </a>
 
                 <a href="#date" class="nav-item min-w-[64px] group flex flex-col items-center">
@@ -96,9 +99,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                     <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Acara</span>
                 </a>
 
-                <a href="#maps" class="nav-item min-w-[64px] group flex flex-col items-center">
-                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">📍</span>
-                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Lokasi</span>
+                <a href="#pengantin" class="nav-item min-w-[64px] group flex flex-col items-center">
+                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">👩‍❤️‍👨</span>
+                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Pengantin</span>
                 </a>
 
                 <a href="#gallery" class="nav-item min-w-[64px] group flex flex-col items-center">
@@ -106,14 +109,14 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                     <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Gallery</span>
                 </a>
 
-                <a href="#moments" class="nav-item min-w-[64px] group flex flex-col items-center">
-                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">👗</span>
-                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Gaun</span>
+                <a href="#maps" class="nav-item min-w-[64px] group flex flex-col items-center">
+                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">📍</span>
+                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Lokasi</span>
                 </a>
-
+                
                 <a href="#bank" class="nav-item min-w-[64px] group flex flex-col items-center">
-                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">🎁</span>
-                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Hadiah</span>
+                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">💳</span>
+                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Bank</span>
                 </a>
 
                 <a href="#comments" class="nav-item min-w-[64px] group flex flex-col items-center">
@@ -136,7 +139,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
     <!-- Background -->
     <div class="absolute inset-0">
         <img 
-            src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+            src="{{ asset('storage/'. $undangan->identitaspengantin->fotopengantin??'') }}"
             class="w-full h-full object-cover"
             data-aos="zoom-out" data-aos-delay="300"
         >
@@ -288,7 +291,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                         <div class="text-center lg:text-left order-2 lg:order-1 flex-1 max-w-lg">
                             <div class="inline-flex items-center gap-3 mb-7">
                                 <span class="w-12 h-[1px] bg-jawa-gold"></span>
-                                <span class="text-xs font-bold tracking-[0.4em] text-jawa-gold uppercase">The Wedding of</span>
+                                <span class="text-xs font-bold tracking-[0.4em] text-jawa-gold uppercase">Pernikahan</span>
                                 <span class="w-12 h-[1px] bg-jawa-gold"></span>
                             </div>
                             
@@ -386,8 +389,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
                 <div class="container mx-auto px-6 relative z-10">
                     <div class="text-center mb-16">
-                        <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">Menghitung Hari</h2>
-                        <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">Save Our Date</h3>
+                        <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">Selamat Datang</h2>
+                        <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">Tanggal Acara</h3>
                         <div class="flex justify-center items-center gap-4 mt-6">
                             <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
                             <div class="text-jawa-gold">✦</div>
@@ -445,13 +448,13 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
 
 
-<!-- 🖼️ SECTION 3: MODERN GALLERY -->
-<section id="maps"
-  class="relative min-h-screen flex justify-center
-         bg-gradient-to-b from-[#2a2419] to-jawa-dark
-         py-20 overflow-hidden">
 
-    <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
+<section id="pengantin"
+    class="relative min-h-screen flex justify-center
+        bg-gradient-to-b from-[#2a2419] to-jawa-dark
+        py-20 overflow-hidden">
+
+        <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
                     <img src="{{ url('backgroundku/svg.png', []) }}" 
                         alt="Javanese Ornament Left"
                         data-aos="zoom-in" data-aos-delay="300" 
@@ -463,10 +466,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         <!-- Heading -->
         <div class="text-center mb-16">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Lokasi Acara
+                Selamat Datang
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                LOKASI
+                Pengantin
             </h3>
             <div class="flex justify-center items-center gap-4 mt-6">
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
@@ -476,71 +479,70 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         </div>
 
 
-<div class="max-w-5xl mx-auto px-6 py-0">
-    <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32 items-center max-w-6xl mx-auto relative">
         
-        <div class="w-full lg:w-5/12 order-2 lg:order-1 text-center lg:text-right space-y-6">
-            <div class="space-y-3">
-                <div class="inline-block px-3 py-1 border border-jawa-gold/30 rounded-full mb-1">
-                    <span class="text-[10px] tracking-[0.3em] text-jawa-gold uppercase font-bold">Lokasi Resepsi</span>
+        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-80 bg-gradient-to-b from-transparent via-jawa-gold/30 to-transparent"></div>
+
+        <div class="text-center md:text-right space-y-6" data-aos="fade-right" data-aos-duration="1500">
+            <div class="relative inline-block group">
+                <div class="absolute -inset-1.5 border-2 border-dashed border-jawa-gold/40 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-jawa-dark shadow-2xl">
+                    <img src="{{ Storage::url($undangan->pasfoto->where('pihak', 'L')->first()?->foto) }}" 
+                        alt="Mempelai Pria" 
+                        loading="lazy"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 </div>
-                <h4 class="text-3xl md:text-4xl font-serif text-jawa-beige italic leading-tight">
-                    {{ $undangan->lokasi->namalokasi }} <br>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="text-4xl md:text-5xl font-serif text-jawa-gold tracking-wide leading-tight">
+                    {{ ucwords($undangan->identitaspengantin->namalengkappengantinpria) }}
                 </h4>
+                <div class="h-[1px] w-32 bg-gradient-to-l from-jawa-gold/60 to-transparent ms-auto me-auto md:me-0"></div>
             </div>
-
-            <div class="space-y-1 text-jawa-beige/80 text-base md:text-lg font-light leading-relaxed">
-                <p class="font-semibold text-jawa-gold">Alamat Lengkap</p>
-                <p>{{ $undangan->lokasi->alamat }}</p>
-            </div>
-
-            <div class="pt-4">
-                <a href="https://www.google.com/maps/search/?api=1&query={{ $undangan->lokasi->lat }},{{ $undangan->lokasi->long }}" target="_blank" 
-                   class="group relative inline-flex items-center gap-3 px-8 py-3 bg-jawa-gold/5 border border-jawa-gold/40 text-jawa-gold overflow-hidden transition-all duration-500 rounded-lg">
-                    <span class="absolute inset-0 bg-jawa-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                    <span class="relative z-10 font-bold tracking-widest text-xs group-hover:text-jawa-dark">BUKA GOOGLE MAPS</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 relative z-10 group-hover:text-jawa-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    </svg>
-                </a>
+            
+            <div class="space-y-1">
+                <p class="text-jawa-beige/60 italic font-serif text-base">Putra {{ strtolower($undangan->identitaspengantin->statusanakpria) }} dari</p>
+                <p class="text-white text-lg md:text-xl font-light tracking-wide">
+                    <span class="font-semibold text-jawa-gold/90">Bpk. {{ $undangan->orangtua->where("pihak", "L")->first()->namabapak }}</span> <br> 
+                    <span class="text-sm opacity-50">&</span> <br>
+                    <span class="font-semibold text-jawa-gold/90">Ibu {{ $undangan->orangtua->where("pihak", "L")->first()->namaibu }}</span>
+                </p>
             </div>
         </div>
 
-
-        <div class="w-full lg:w-6/12 order-1 lg:order-2 relative">
-            
-            <div class="absolute inset-0 bg-jawa-gold/10 blur-[50px] rounded-full scale-75"></div>
-
-            <div class="relative p-[1.5px] overflow-hidden rounded-2xl bg-jawa-gold/20 shadow-2xl">
-                <div class="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_150deg,#c5a059_180deg,transparent_210deg)] animate-[spin_3s_linear_infinite]"></div>
-                
-                <div class="relative bg-jawa-dark rounded-2xl p-1 z-10">
-                    <div class="overflow-hidden rounded-xl h-[300px] lg:h-[380px]">
-                        <iframe 
-                            src="https://www.google.com/maps?q={{ $undangan->lokasi->lat}},{{ $undangan->lokasi->long}}&hl=id&z=13&output=embed" 
-                            class="w-full h-full grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            data-aos="zoom-out" data-aos-delay="300"
-                            loading="lazy">
-                        </iframe>
-                    </div>
+        <div class="text-center md:text-left space-y-6" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">
+            <div class="relative inline-block group">
+                <div class="absolute -inset-1.5 border-2 border-dashed border-jawa-gold/40 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-jawa-dark shadow-2xl">
+                    <img src="{{ Storage::url($undangan->pasfoto->where('pihak', 'P')->first()?->foto) }}" 
+                        alt="Mempelai Wanita" 
+                        loading="lazy"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 </div>
             </div>
 
-            <div class="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-jawa-gold/50"></div>
-            <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-jawa-gold/50"></div>
+            <div class="space-y-2">
+                <h4 class="text-4xl md:text-5xl font-serif text-jawa-gold tracking-wide leading-tight">
+                    {{ ucwords($undangan->identitaspengantin->namalengkappengantinwanita) }}
+                </h4>
+                <div class="h-[1px] w-32 bg-gradient-to-r from-jawa-gold/60 to-transparent ms-auto me-auto md:ms-0"></div>
+            </div>
+            
+            <div class="space-y-1">
+                <p class="text-jawa-beige/60 italic font-serif text-base">Putri {{ strtolower($undangan->identitaspengantin->statusanakwanita) }} dari</p>
+                <p class="text-white text-lg md:text-xl font-light tracking-wide">
+                    <span class="font-semibold text-jawa-gold/90">Bpk. {{ $undangan->orangtua->where("pihak", "P")->first()->namabapak }}</span> <br> 
+                    <span class="text-sm opacity-50">&</span> <br>
+                    <span class="font-semibold text-jawa-gold/90">Ibu {{ $undangan->orangtua->where("pihak", "P")->first()->namaibu }}</span>
+                </p>
+            </div>
         </div>
+    </div>
 
     </div>
 
-
-</div>
-
-
-
-    </div>
-
+    <br>
     <br>
     <div class="absolute bottom-0 left-0 w-full z-20">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
@@ -549,7 +551,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         </svg>
     </div>
 
+
+
 </section>
+
 
 
 
@@ -571,10 +576,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         <!-- Heading -->
         <div class="text-center mb-14">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Our Moments
+                Selamat Datang
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Gallery Moments
+                Bingkai Kenangan
             </h3>
             <div class="flex justify-center items-center gap-4 mt-6">
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
@@ -633,7 +638,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                 duration-300 flex items-center justify-center gap-2">
         <flux:icon.chevron-double-right />
     </button>
-</div>
+    </div>
 
     
 
@@ -711,12 +716,13 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
 
 
-{{-- <section id="moments"
-  class="relative min-h-screen flex justify-center
+<!-- 🖼️ SECTION 3: MODERN GALLERY -->
+<section id="maps"
+           class="relative min-h-screen flex justify-center
          bg-gradient-to-b from-[#2a2419] to-jawa-dark  
          py-20 overflow-hidden">
 
-         <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
+    <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
                     <img src="{{ url('backgroundku/svg.png', []) }}" 
                         alt="Javanese Ornament Left"
                         data-aos="zoom-in" data-aos-delay="300" 
@@ -728,10 +734,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         <!-- Heading -->
         <div class="text-center mb-16">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Our Journey
+                Selamat Datang
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Gaun Pengantin
+                LOKASI
             </h3>
             <div class="flex justify-center items-center gap-4 mt-6">
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
@@ -741,50 +747,71 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         </div>
 
 
-        <!-- HIGHLIGHT MOMENTS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-10">
-
-            @foreach ($undangan->gaun()->get() as $item)
-            <div class="group relative overflow-hidden
-                        rounded-3xl border border-jawa-gold/20
-                        bg-black/20 backdrop-blur-sm
-                        transition-all duration-700
-                        hover:-translate-y-2
-                        hover:border-jawa-gold
-                        hover:shadow-[0_30px_60px_-15px_rgba(197,160,89,0.45)]
-
-                        w-[85%] sm:max-w-[70%] md:max-w-none
-                        mx-auto">
-
-                <img src="{{ empty($item->fotogaun) ? url('not-available.jpg') : asset('storage/' . $item->fotogaun) }}"
-                data-aos="zoom-out" data-aos-delay="300"
-                    class="w-full h-auto md:h-[420px]
-                            object-cover
-                            transition duration-700 ease-out
-                            group-hover:scale-110" />
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
-
-                <div class="absolute bottom-6 left-6 right-6">
-                    <h4 class="text-jawa-gold font-serif text-2xl ">
-                        {{ strtoupper($item->waktugaun) }}
+    <div class="max-w-5xl mx-auto px-6 py-0">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+            
+            <div class="w-full lg:w-5/12 order-2 lg:order-1 text-center lg:text-right space-y-6">
+                <div class="space-y-3">
+                    <div class="inline-block px-3 py-1 border border-jawa-gold/30 rounded-full mb-1">
+                        <span class="text-[10px] tracking-[0.3em] text-jawa-gold uppercase font-bold">Lokasi Resepsi</span>
+                    </div>
+                    <h4 class="text-3xl md:text-4xl font-serif text-jawa-beige italic leading-tight">
+                        {{ $undangan->lokasi->namalokasi }} <br>
                     </h4>
-                    <p class="text-white/80 text-xs md:text-sm leading-relaxed">
-                        {{ strtoupper($item->namagaun) }}
-                    </p>
+                </div>
+
+                <div class="space-y-1 text-jawa-beige/80 text-base md:text-lg font-light leading-relaxed">
+                    <p class="font-semibold text-jawa-gold">Alamat Lengkap</p>
+                    <p>{{ $undangan->lokasi->alamat }}</p>
+                </div>
+
+                <div class="pt-4">
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ $undangan->lokasi->lat }},{{ $undangan->lokasi->long }}" target="_blank" 
+                    class="group relative inline-flex items-center gap-3 px-8 py-3 bg-jawa-gold/5 border border-jawa-gold/40 text-jawa-gold overflow-hidden transition-all duration-500 rounded-lg">
+                        <span class="absolute inset-0 bg-jawa-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                        <span class="relative z-10 font-bold tracking-widest text-xs group-hover:text-jawa-dark">BUKA GOOGLE MAPS</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 relative z-10 group-hover:text-jawa-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
+
+
+            <div class="w-full lg:w-6/12 order-1 lg:order-2 relative">
                 
-            @endforeach
+                <div class="absolute inset-0 bg-jawa-gold/10 blur-[50px] rounded-full scale-75"></div>
 
-            
+                <div class="relative p-[1.5px] overflow-hidden rounded-2xl bg-jawa-gold/20 shadow-2xl">
+                    <div class="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_150deg,#c5a059_180deg,transparent_210deg)] animate-[spin_3s_linear_infinite]"></div>
+                    
+                    <div class="relative bg-jawa-dark rounded-2xl p-1 z-10">
+                        <div class="overflow-hidden rounded-xl h-[300px] lg:h-[380px]">
+                            <iframe 
+                                src="https://www.google.com/maps?q={{ $undangan->lokasi->lat}},{{ $undangan->lokasi->long}}&hl=id&z=13&output=embed" 
+                                class="w-full h-full grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                data-aos="zoom-out" data-aos-delay="300"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-jawa-gold/50"></div>
+                <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-jawa-gold/50"></div>
+            </div>
 
         </div>
 
 
     </div>
 
-    <br>
+
+
+    </div>
+
     <br>
     <div class="absolute bottom-0 left-0 w-full z-20">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
@@ -792,119 +819,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
             <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
         </svg>
     </div>
-
-</section> --}}
-
-
-
-
-<section id="moments"
-  class="relative min-h-screen flex justify-center
-         bg-gradient-to-b from-[#2a2419] to-jawa-dark  
-         py-20 overflow-hidden">
-
-         <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
-                    <img src="{{ url('backgroundku/svg.png', []) }}" 
-                        alt="Javanese Ornament Left"
-                        data-aos="zoom-in" data-aos-delay="300" 
-                        class="w-full h-auto object-contain">
-                </div>
-
-    <div class="container mx-auto px-6 relative z-10">
-
-        <!-- Heading -->
-        <div class="text-center mb-16">
-            <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Our Journey
-            </h2>
-            <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Gaun Pengantin
-            </h3>
-            <div class="flex justify-center items-center gap-4 mt-6">
-                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
-                <div class="text-jawa-gold">✦</div>
-                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
-            </div>
-        </div>
-
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32 items-center max-w-6xl mx-auto relative">
-        
-        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-80 bg-gradient-to-b from-transparent via-jawa-gold/30 to-transparent"></div>
-
-        <div class="text-center md:text-right space-y-6" data-aos="fade-right" data-aos-duration="1500">
-            <div class="relative inline-block group">
-                <div class="absolute -inset-1.5 border-2 border-dashed border-jawa-gold/40 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-jawa-dark shadow-2xl">
-                    <img src="https://ui-avatars.com/api/?name=Bimo+Kusuma&background=c5a059&color=fff&size=256" 
-                        alt="Mempelai Pria" 
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-            </div>
-
-            <div class="space-y-2">
-                <h4 class="text-4xl md:text-5xl font-serif text-jawa-gold tracking-wide leading-tight">
-                    Bimo Kusuma
-                </h4>
-                <div class="h-[1px] w-32 bg-gradient-to-l from-jawa-gold/60 to-transparent ms-auto me-auto md:me-0"></div>
-            </div>
-            
-            <div class="space-y-1">
-                <p class="text-jawa-beige/60 italic font-serif text-base">Putra sulung dari</p>
-                <p class="text-white text-lg md:text-xl font-light tracking-wide">
-                    <span class="font-semibold text-jawa-gold/90">Bpk. Bambang Herlambang</span> <br> 
-                    <span class="text-xs opacity-50">&</span> <br>
-                    <span class="font-semibold text-jawa-gold/90">Ibu Siti Aminah</span>
-                </p>
-            </div>
-        </div>
-
-        <div class="text-center md:text-left space-y-6" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">
-            <div class="relative inline-block group">
-                <div class="absolute -inset-1.5 border-2 border-dashed border-jawa-gold/40 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-jawa-dark shadow-2xl">
-                    <img src="https://ui-avatars.com/api/?name=Raras+Ningrum&background=c5a059&color=fff&size=256" 
-                        alt="Mempelai Wanita" 
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-            </div>
-
-            <div class="space-y-2">
-                <h4 class="text-4xl md:text-5xl font-serif text-jawa-gold tracking-wide leading-tight">
-                    Raras Ningrum
-                </h4>
-                <div class="h-[1px] w-32 bg-gradient-to-r from-jawa-gold/60 to-transparent ms-auto me-auto md:ms-0"></div>
-            </div>
-            
-            <div class="space-y-1">
-                <p class="text-jawa-beige/60 italic font-serif text-base">Putri bungsu dari</p>
-                <p class="text-white text-lg md:text-xl font-light tracking-wide">
-                    <span class="font-semibold text-jawa-gold/90">Bpk. Raden Wijaya</span> <br> 
-                    <span class="text-xs opacity-50">&</span> <br>
-                    <span class="font-semibold text-jawa-gold/90">Ibu Sekar Kedaton</span>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    </div>
-
-    <br>
-    <br>
-    <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
-            <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a241970"/>
-            <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
-        </svg>
-    </div>
-
-
 
 </section>
-
-
-
-
 
 
 
@@ -922,86 +838,86 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                         class="w-full h-auto object-contain">
                 </div>
 
-<!-- 💝 SECTION DONASI -->
-<div class="container mx-auto px-6 relative z-10">
+    <!-- 💝 SECTION DONASI -->
+    <div class="container mx-auto px-6 relative z-10">
 
-    <!-- Heading -->
-    <div class="text-center mb-16">
-        <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-            Penyaluran
-        </h2>
-        <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-            Rekening Mempelai
-        </h3>
-        <div class="flex justify-center items-center gap-4 mt-6">
-            <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
-            <div class="text-jawa-gold">✦</div>
-            <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
-        </div>
-    </div>
-
-    <!-- GRID -->
-    <div class="flex justify-center">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-
-            @foreach ($undangan->rekening()->get() as $item)
-            <div class="w-full max-w-md
-                        rounded-3xl border border-jawa-gold/30
-                        bg-black/35 backdrop-blur-md p-5
-                        transition-all duration-500
-                        hover:border-jawa-gold
-                        hover:-translate-y-1
-                        hover:shadow-[0_20px_40px_-10px_rgba(197,160,89,0.4)]">
-
-                <!-- TOP -->
-                <div class="flex items-center gap-4 mx-5">
-
-                    <!-- ICON -->
-                    <div class="w-16 h-16 flex items-center justify-center
-                                rounded-2xl bg-white/10 shrink-0">
-                        <img src="{{ $item->urlgambar }}"
-                        data-aos="zoom-out" data-aos-delay="300"
-                            class="w-12" alt="{{ $item->namabank }}">
-                    </div>
-
-                    <!-- TEXT -->
-                    <div>
-                        <p class="text-white font-semibold text-lg">{{ $item->namabank }}</p>
-                        <p class="text-jawa-beige text-lg font-mono tracking-wide">
-                            {{ $item->nomorrekening }}
-                        </p>
-                        <p class="text-jawa-beige/70 text-sm">
-                            {{ $item->atasnama }}
-                        </p>
-                    </div>
-                </div>
-
-                <!-- BUTTON -->
-                <button onclick="copyToClipboard(this, '{{ $item->nomorrekening }}')"
-                class="w-full text-sm py-2 rounded-xl mt-2
-                    border border-jawa-gold/40
-                    text-jawa-gold
-                    hover:bg-jawa-gold hover:text-jawa-dark
-                    transition duration-300 flex items-center justify-center gap-2">
-                <span>Salin Nomor</span>
-            </button>
+        <!-- Heading -->
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
+                Selamat Datang
+            </h2>
+            <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
+                Rekening Mempelai
+            </h3>
+            <div class="flex justify-center items-center gap-4 mt-6">
+                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
+                <div class="text-jawa-gold">✦</div>
+                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
             </div>
-                
-            @endforeach
-
-
         </div>
-    </div>
-   
-</div>
 
-    <br>
-    <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
-            <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
-            <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
-        </svg>
+        <!-- GRID -->
+        <div class="flex justify-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+
+                @foreach ($undangan->rekening()->get() as $item)
+                <div class="w-full max-w-md
+                            rounded-3xl border border-jawa-gold/30
+                            bg-black/35 backdrop-blur-md p-5
+                            transition-all duration-500
+                            hover:border-jawa-gold
+                            hover:-translate-y-1
+                            hover:shadow-[0_20px_40px_-10px_rgba(197,160,89,0.4)]">
+
+                    <!-- TOP -->
+                    <div class="flex items-center gap-4 mx-5">
+
+                        <!-- ICON -->
+                        <div class="w-16 h-16 flex items-center justify-center
+                                    rounded-2xl bg-white/10 shrink-0">
+                            <img src="{{ $item->urlgambar }}"
+                            data-aos="zoom-out" data-aos-delay="300"
+                                class="w-12" alt="{{ $item->namabank }}">
+                        </div>
+
+                        <!-- TEXT -->
+                        <div>
+                            <p class="text-white font-semibold text-lg">{{ $item->namabank }}</p>
+                            <p class="text-jawa-beige text-lg font-mono tracking-wide">
+                                {{ $item->nomorrekening }}
+                            </p>
+                            <p class="text-jawa-beige/70 text-sm">
+                                {{ $item->atasnama }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button onclick="copyToClipboard(this, '{{ $item->nomorrekening }}')"
+                    class="w-full text-sm py-2 rounded-xl mt-2
+                        border border-jawa-gold/40
+                        text-jawa-gold
+                        hover:bg-jawa-gold hover:text-jawa-dark
+                        transition duration-300 flex items-center justify-center gap-2">
+                    <span>Salin Nomor</span>
+                </button>
+                </div>
+                    
+                @endforeach
+
+
+            </div>
+        </div>
+    
     </div>
+
+        <br>
+        <div class="absolute bottom-0 left-0 w-full z-20">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+                <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
+                <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
+            </svg>
+        </div>
 
 </section>
 
@@ -1151,6 +1067,11 @@ function openInvitation() {
         main.classList.add('animate-fade-in');
         nav.classList.add('animate-fade-in');
     }, 500);
+
+     window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // biar animasi halus
+    });
 }
 
         // Atur tanggal target di sini

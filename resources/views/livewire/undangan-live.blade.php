@@ -10,16 +10,49 @@
             label='Tanggal Pernikahan'
             wire:model='tanggal' />
 
+            <flux:separator text="Pria"/>
+
             <flux:input 
-            label='Nama Pengantin Pria' 
-            placeholder='masukan nama pengantin pria' 
+            label='Nama Lengkap Pengantin Pria' 
+            placeholder='Masukan Nama pengantin pria' 
+            wire:model='namalengkappengantinpria'
+            :invalid="$errors->has('namalengkappengantinpria')"/>
+
+            <flux:input 
+            label='Nama Panggilan Pria' 
+            placeholder='Masukan Nama Panggilan Pria' 
             wire:model='namapengantinpria'
+            type="text"
             :invalid="$errors->has('namapengantinpria')"/>
+
             <flux:input 
-            label='Nama Pengantin Wanita' 
-            placeholder='masukan nama pengantin wanita' 
+            label='Status Anak Pengantin Pria' 
+            placeholder='Contoh : pertama, kedua, sulung, bungsu dll.' 
+            wire:model='statusanakpria'
+            type="text"
+            :invalid="$errors->has('statusanakpria')"/>
+            
+            <flux:separator text="Wanita"/>
+
+            <flux:input 
+            label='Nama Lengkap Pengantin Wanita' 
+            placeholder='Masukan Nama pengantin wanita' 
+            wire:model='namalengkappengantinwanita'
+            :invalid="$errors->has('namalengkappengantinwanita')"/>
+
+            <flux:input 
+            label='Nama Panggilan Wanita' 
+            placeholder='Masukan Nama Panggilan Wanita' 
             wire:model='namapengantinwanita'
+            type="text"
             :invalid="$errors->has('namapengantinwanita')"/>
+
+            <flux:input 
+            label='Status Anak Pengantin Wanita' 
+            placeholder='Contoh : pertama, kedua, sulung, bungsu dll.' 
+            wire:model='statusanakwanita'
+            type="text"
+            :invalid="$errors->has('statusanakwanita')"/>
     
     
             <div class='flex'>
