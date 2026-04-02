@@ -27,6 +27,7 @@
                 <img 
                 src="{{ Storage::url($fotol) }}" 
                 alt="Contoh Gambar Pasfoto"
+                loading="lazy"
                 class="
                     w-[200px] 
                     h-[200px] 
@@ -69,6 +70,7 @@
                 <img 
                 src="{{ Storage::url($fotop) }}" 
                 alt="Contoh Gambar Pasfoto"
+                loading="lazy"
                 class="
                     w-[200px] 
                     h-[200px] 
@@ -123,6 +125,7 @@
                         <img 
                             src="{{ empty($identitaspengantin->fotopengantin) ? url('not-available.jpg') : asset('storage/' . $identitaspengantin->fotopengantin) }}"
                             class="max-h-full w-auto object-contain transition duration-300 hover:scale-105 rounded-2xl"
+                            loading="lazy"
                         >
                     </div>
                 

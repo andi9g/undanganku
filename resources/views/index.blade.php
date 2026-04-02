@@ -141,6 +141,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         <img 
             src="{{ asset('storage/'. $undangan->identitaspengantin->fotopengantin??'') }}"
             class="w-full h-full object-cover"
+            loading="lazy"
             data-aos="zoom-out" data-aos-delay="300"
         >
         <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/90"></div>
