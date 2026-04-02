@@ -81,8 +81,15 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
 <body class="bg-gray-100 overflow-x-hidden mybackground">
 
+<button id="menuToggle"
+    class="fixed bottom-3 right-4 z-50 bg-black/70 backdrop-blur-lg text-white px-4 py-2 rounded-full shadow-lg border border-white/10 transition hover:scale-105">
+    ☰ Menu
+</button>
+
 <nav id="mainContentNav"
-    class="fixed bottom-2 md:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[900px] opacity-0 transition-opacity duration-1000">
+    hidden
+    class="fixed bottom-15 md:bottom-24 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-[900px]
+           transition-all duration-500">
     
     <div class="backdrop-blur-xl bg-black/60 border border-white/10 shadow-2xl rounded-2xl px-1">
         <div class="flex items-center min-h-[65px] overflow-x-auto scrollbar-hide scroll-smooth">
@@ -128,6 +135,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         </div>
     </div>
 </nav>
+
+
 
     <!-- 🔒 OPENING -->
 <div
@@ -1004,6 +1013,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
     <!-- ✨ SCRIPT -->
 <script>
+
+
 const music = document.getElementById('bgMusic');
 const musicIcon = document.getElementById('musicIcon');
 const toggleBtn = document.getElementById('musicToggle');
@@ -1019,6 +1030,50 @@ function toggleMusic() {
         toggleBtn.classList.remove('animate-spin-slow');
     }
 }
+
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('mainContentNav');
+
+let isOpen = false;
+
+menuToggle.addEventListener('click', () => {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+        nav.hidden = false;
+
+        // kasih delay kecil biar animasi jalan
+        requestAnimationFrame(() => {
+            nav.style.opacity = '1';
+            nav.style.transform = 'translate(-50%, 0)';
+        });
+
+        nav.style.pointerEvents = 'auto';
+        menuToggle.innerHTML = '✖ Close';
+    } else {
+        nav.style.opacity = '0';
+        nav.style.transform = 'translate(-50%, 20px)';
+        nav.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+            nav.hidden = true;
+        }, 500); // sesuai duration-500
+
+        menuToggle.innerHTML = '☰ Menu';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function openInvitation() {
