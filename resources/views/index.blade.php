@@ -82,10 +82,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 <body class="bg-gray-100 overflow-x-hidden mybackground">
 
 <nav id="mainContentNav"
-    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[900px] opacity-0 transition-opacity duration-1000">
+    class="fixed bottom-2 md:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[900px] opacity-0 transition-opacity duration-1000">
     
-    <div class="backdrop-blur-xl bg-black/60 border border-white/10 shadow-2xl rounded-2xl px-2">
-        <div class="flex items-center min-h-[75px] overflow-x-auto scrollbar-hide scroll-smooth">
+    <div class="backdrop-blur-xl bg-black/60 border border-white/10 shadow-2xl rounded-2xl px-1">
+        <div class="flex items-center min-h-[65px] overflow-x-auto scrollbar-hide scroll-smooth">
             
             <div class="flex items-center justify-between w-full min-w-max px-4 gap-4">
                 
@@ -350,9 +350,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                         </div>
 
                         <div class="relative order-1 lg:order-2 group">
-                            <div class="absolute -inset-4 border-2 border-jawa-gold/40 rounded-[40px] animate-float-frame"></div>
+                            <div class="absolute -inset-4 border-2 border-jawa-gold/40 rounded-[30px] md:rounded-[40px] animate-float-frame"></div>
                             
-                            <div class="relative w-64 h-80 md:w-80 md:h-[480px] lg:h-[520px] overflow-hidden rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/5">
+                            <div class="relative w-50 h-70 md:w-80 md:h-[480px] lg:h-[520px] overflow-hidden rounded-[30px] md:rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/5">
                                 <img src="{{ asset('storage/'. $undangan->identitaspengantin->fotopengantin??'') }}" 
                                     alt="Couple" 
                                     loading="lazy"
