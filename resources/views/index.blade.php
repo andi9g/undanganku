@@ -478,7 +478,13 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
                                 
 
-                            
+                            {{-- <div class="h-[1px] w-1/2 bg-gradient-to-r from-transparent via-jawa-gold to-transparent mx-auto mb-6"></div>
+                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
+                                {!! $lokasi !!}
+                            </p>
+                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
+                                {!! $text2 !!}
+                            </p> --}}
                             
                             
                         </div>
