@@ -89,4 +89,51 @@ class SebarLive extends Component
         
         LivewireAlert::title('Success')->success()->show();
     }
+
+    public function getPesanWa($kode)
+    {
+        $undangan = undanganM::where(["idundangan" => $this->idundangan, "iduser" => Auth::user()->iduser])->first();
+        $sebarundangan = sebarundanganM::where("kodepenerima",$kode)->first();
+        $urlUndangan = asset("share/{$undangan->kode}/{$kode}");
+
+        $tanggalFormat = \Carbon\Carbon::parse($undangan->tanggal)->translatedFormat('l, d F Y');
+        $nama = $sebarundangan->namapenerima ?? 'Bapak/Ibu/Saudara/i';
+
+        $pesan = <<<TEXT
+    Assalamu’alaikum Warahmatullahi Wabarakatuh
+
+    “Bukan tentang menemukan yang sempurna, tapi tentang menerima dalam ketidaksempurnaan.”🕊️🕊️
+
+    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang {$nama} untuk hadir dalam acara pernikahan putra - putri kami:
+
+    ✨ {$undangan->identitaspengantin->namapengantinpria} & {$undangan->identitaspengantin->namapengantinwanita} ✨
+
+    Yang insyaAllah akan dilaksanakan pada:
+    📅 {$tanggalFormat}
+    📍 {$undangan->namalokasi} ({$undangan->alamat})
+
+    Untuk informasi lengkap mengenai waktu dan lokasi, silakan mengakses undangan digital kami melalui tautan berikut:
+    🔗 {$urlUndangan}
+
+    Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila berkenan hadir serta memberikan doa restu.
+
+    Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
+
+    Wassalamu’alaikum Warahmatullahi Wabarakatuh
+    TEXT;
+
+        return $pesan;
+    }
+
+
+    public function copyPesan($id)
+    {
+        $data = sebarundanganM::where("idsebarundangan", $id)->first();
+
+        $pesan = $this->getPesanWa($data->kodepenerima);
+
+        $this->dispatch('copy-text', text: $pesan);
+
+        LivewireAlert::title('Success')->text("URL telah disalin")->success()->show();
+    }
 }

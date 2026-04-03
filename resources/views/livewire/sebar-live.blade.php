@@ -79,21 +79,25 @@
                         <div class="flex items-center gap-2">
                             @php
                                 // Menggunakan %0A untuk baris baru agar rapi saat dibaca
-                                $urlUndangan = url("mengundang/{$undangan->kode}/{$item->kodepenerima}");
+                                $urlUndangan = asset("share/{$undangan->kode}/{$item->kodepenerima}");
 
                                 // Format Tanggal agar lebih cantik (Contoh: Minggu, 20 Oktober 2024)
                                 $tanggalFormat = \Carbon\Carbon::parse($undangan->tanggal)->translatedFormat('l, d F Y');
 
-                                $pesanTeks = "Bismillahirrahmannirrahim. [br][br]"
-                                        . "*Yth. Bapak/Ibu/Saudara/i {$item->namapenerima}* [br]"
-                                        . "Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk menghadiri acara pernikahan: [br][br]"
-                                        . "*{$undangan->identitaspengantin->namapengantinpria} & {$undangan->identitaspengantin->namapengantinwanita}* [br][br]"
-                                        . "Yang akan dilaksanakan pada: [br]"
-                                        . "*{$tanggalFormat}* [br][br]"
-                                        . "Silakan kunjungi tautan *Undangan Digital* berikut untuk info lokasi (Maps) dan detail acara: [br][br]"
-                                        . "{$urlUndangan} [br][br]"
-                                        . "Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. [br][br]"
-                                        . "Terima kasih.";
+                                $pesanTeks = "Assalamu’alaikum Warahmatullahi Wabarakatuh [br][br]"
+                                . "“Bukan tentang menemukan yang sempurna, tapi tentang menerima dalam ketidaksempurnaan.”🕊️🕊️ [br][br]"
+                                . "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan putra - putri kami: [br][br]"
+                                . "✨ {$undangan->identitaspengantin->namapengantinpria} & {$undangan->identitaspengantin->namapengantinwanita} ✨ [br][br]"
+                                . "Yang insyaAllah akan dilaksanakan pada: [br]"
+                                . "📅 {$tanggalFormat} [br]"
+                                . "📍 {$undangan->lokasi->namalokasi} ({$undangan->lokasi->alamat}) [br][br]"
+                                . "Untuk informasi lengkap mengenai waktu dan lokasi, silakan mengakses undangan digital kami melalui tautan berikut: [br]"
+                                . "🔗 {$urlUndangan} [br][br]"
+                                . "Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu. [br][br]"
+                                . "Atas kehadiran dan doa restunya, kami ucapkan terima kasih. [br][br]"
+                                . "Wassalamu’alaikum Warahmatullahi Wabarakatuh";
+
+                                // dd($pesanTeks);
 
                                 // Ubah [br] menjadi baris baru yang asli (\n harus dalam kutip dua)
                                 $pesanTeks = str_replace('[br]', "\n", $pesanTeks);
@@ -117,11 +121,8 @@
                                 variant="primary" 
                                 color="green" 
                                 icon="clipboard-document"
-                                x-on:click="
-                                    navigator.clipboard.writeText('{{ $urlUndangan }}');
-                                    Flux.toast('Link berhasil disalin!');
-                                ">
-                                Copy
+                                wire:click="copyPesan({{ $item->idsebarundangan }})">
+                                Kirim ke WhatsApp
                             </flux:button>
                             <flux:button variant="primary" color="danger" wire:click='hapusTamuUndangan({{ $item->idsebarundangan }})'>Hapus</flux:button>
                         </div>
@@ -131,6 +132,10 @@
         </flux:table.rows>
     </flux:table>
     
-    
+    <script>
+        window.addEventListener('copy-text', event => {
+            navigator.clipboard.writeText(event.detail.text);
+        });
+    </script>
 
 </div>

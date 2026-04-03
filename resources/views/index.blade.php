@@ -377,7 +377,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                 </div>
 
                 <div class="absolute bottom-0 left-0 w-full z-20">
-                    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+                    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
                         <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a241970"/>
                         <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
                     </svg>
@@ -494,7 +494,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                 <br>
                 <br>
                 <div class="absolute bottom-0 left-0 w-full z-20">
-                    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+                    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
                         <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
                         <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
                     </svg>
@@ -600,7 +600,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
     <br>
     <br>
     <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
             <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a241970"/>
             <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
         </svg>
@@ -612,7 +612,33 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
 
 
+<section
+class="relative flex justify-center
+         bg-gradient-to-b from-jawa-dark to-[#2a2419]
+         py-20 overflow-hidden">
+    
 
+   
+
+    <div class="container mx-auto px-6 relative z-10 my-auto px-xl text-center">
+        <div class="h-[2px] w-1/2 bg-gradient-to-r from-transparent via-jawa-gold to-transparent mx-auto mb-9"></div>
+        <br>
+        <p class="text-jawa-beige/60 italic font-light leading-relaxed text-1xl md:text-2xl mb-9">
+            {!! $text2 !!}
+        </p>
+        <br>
+        <div class="h-[2px] w-1/2 bg-gradient-to-r from-transparent via-jawa-gold to-transparent mx-auto mb-6"></div>
+    </div>
+
+    <br>
+    <div class="absolute bottom-0 left-0 w-full z-20">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
+            <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a241970"/>
+            <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
+        </svg>
+    </div>
+
+</section>
 
 
 
@@ -620,9 +646,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
 <!-- 🖼️ SECTION 3: MODERN GALLERY -->
 <section id="maps"
-class="relative min-h-screen flex justify-center
-         bg-gradient-to-b from-jawa-dark to-[#2a2419]
-         py-20 overflow-hidden">
+    class="relative min-h-screen flex justify-center
+    bg-gradient-to-b from-[#2a2419] to-jawa-dark  
+    py-20 overflow-hidden">
     
 
     <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
@@ -717,7 +743,7 @@ class="relative min-h-screen flex justify-center
 
     <br>
     <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
             <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a241970"/>
             <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
         </svg>
@@ -726,10 +752,14 @@ class="relative min-h-screen flex justify-center
 </section>
 
 
+
+
+
 <section id="gallery"
     class="relative min-h-screen flex justify-center
-    bg-gradient-to-b from-[#2a2419] to-jawa-dark  
-    py-20 overflow-hidden">
+         bg-gradient-to-b from-jawa-dark to-[#2a2419]
+         py-20 overflow-hidden">
+    
 
     <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
                     <img src="{{ url('backgroundku/svg.png', []) }}" 
@@ -755,160 +785,48 @@ class="relative min-h-screen flex justify-center
             </div>
         </div>
 
-        <!-- CENTERING WRAPPER -->
         <div class="flex justify-center md:mx-10 mb-10">
 
-            <!-- MAX WIDTH -->
-            {{-- <div class="max-w-7xl w-full">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 
-                <div class="relative w-full h-[420px] md:h-[500] flex items-center justify-center overflow-hidden"> --}}
+                @foreach($undangan->gallery()->get() as $item)
+                <div class="relative overflow-hidden rounded-xl bg-gray-200 group"
+                data-aos="zoom-in" data-aos-delay="300">
 
-                    <!-- Tombol Kiri -->
-    {{-- <button onclick="prev()" type="button"
-        class="absolute left-0 md:left-10 z-50 w-10 h-10 md:w-15 md:h-15 text-xl rounded-full  backdrop-blur-m
-               flex items-center justify-center text-jawa-dark text-jawa-gold/80
-               hover:bg-black transition bg-[#3a3a3a79]
-               border md:border-jawa-gold/40 border-jawa-gold/80
-                md:text-jawa-gold
-                md:hover:bg-jawa-gold md:hover:text-jawa-dark
-                duration-300 flex items-center justify-center gap-2">
-        <flux:icon.chevron-double-left />
-    </button>
+                    <!-- Skeleton -->
+                    <div class="absolute inset-0 animate-pulse bg-gray-300"></div>
 
-    <div id="carousel"
-        class="relative w-[320px] md:w-[380] h-[400px] md:h-[500] flex items-center justify-center"
-        style="perspective: 1400px;">
-        
-         @foreach ($undangan->gallery()->get() as $item)
-         <div class="card"><img
-                                loading="lazy"
-                                data-aos="zoom-out" data-aos-delay="300"
-                                src="{{ asset('storage/'. $item->fotogallery) }}"
-                                class="w-full h-auto object-cover
-                                    scale-105
-                                    opacity-0 blur-sm
-                                    transition-all duration-700 ease-out
-                                    group-hover:scale-110
-                                    group-hover:rotate-[0.5deg]
-                                    group-hover:saturate-110"
-                                onload="
-                                    this.style.opacity=1;
-                                    this.style.filter='blur(0)';
-                                    this.previousElementSibling.style.display='none';
-                                "
-                            /></div>
-         @endforeach
+                    <img
+                        src="{{ asset('storage/'. $item->fotogallery) }}"
+                        loading="lazy"
+                        
+                        class="w-full h-full object-cover
+                            opacity-0 blur-sm scale-105
+                            transition-all duration-700 ease-out
+                            group-hover:scale-110 group-hover:saturate-110"
+                        onload="
+                            this.style.opacity=1;
+                            this.style.filter='blur(0)';
+                            this.previousElementSibling.style.display='none';
+                        "
+                    >
+                </div>
+                @endforeach
 
-        <!-- Tombol Kanan -->
-   
-    </div>
-    <button onclick="next()" type="button"
-        class="absolute right-0 md:right-15 z-50 w-10 h-10 md:w-15 md:h-15 text-xl rounded-full  backdrop-blur-m
-               flex items-center justify-center transition bg-[#3a3a3a79] text-jawa-gold/80
-               border md:border-jawa-gold/40 border-jawa-gold/80
-                md:text-jawa-gold
-                md:hover:bg-jawa-gold md:hover:text-jawa-dark
-                duration-300 flex items-center justify-center gap-2">
-        <flux:icon.chevron-double-right />
-    </button>
-    </div> --}}
-
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-
-        @foreach($undangan->gallery()->get() as $item)
-        <div class="relative overflow-hidden rounded-xl bg-gray-200 group"
-        data-aos="zoom-in" data-aos-delay="300">
-
-            <!-- Skeleton -->
-            <div class="absolute inset-0 animate-pulse bg-gray-300"></div>
-
-            <img
-                src="{{ asset('storage/'. $item->fotogallery) }}"
-                loading="lazy"
-                
-                class="w-full h-full object-cover
-                    opacity-0 blur-sm scale-105
-                    transition-all duration-700 ease-out
-                    group-hover:scale-110 group-hover:saturate-110"
-                onload="
-                    this.style.opacity=1;
-                    this.style.filter='blur(0)';
-                    this.previousElementSibling.style.display='none';
-                "
-            >
-        </div>
-        @endforeach
-
-    </div>
+            </div>
     
 
 
-                {{-- <!-- MASONRY -->
-                <div class="inline-block columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-5 space-y-4 md:space-y-5">
-
-                    @foreach ($undangan->gallery()->get() as $item)
-                    <!-- CARD -->
-                    <div
-                        class="break-inside-avoid group relative
-                               rounded-[2rem] md:rounded-[1.75rem]
-                               border border-jawa-gold/20
-                               bg-white/5 backdrop-blur-sm
-                               overflow-hidden
-                               transition-all duration-700 ease-out
-                               hover:-translate-y-2
-                               hover:border-jawa-gold
-                               hover:shadow-[0_30px_60px_-15px_rgba(197,160,89,0.45)]
-                               active:scale-[0.97]
-                               animate-[fadeUp_0.9s_ease-out_both]"
-                    >
-
-                        <!-- IMAGE FRAME -->
-                        <div class="overflow-hidden rounded-[1.85rem] md:rounded-[1.6rem]">
-
-                            <img
-                                loading="lazy"
-                                data-aos="zoom-out" data-aos-delay="300"
-                                src="{{ asset('storage/'. $item->fotogallery) }}"
-                                class="w-full h-auto object-cover
-                                       scale-105
-                                       transition-all duration-700 ease-out
-                                       group-hover:scale-110
-                                       group-hover:rotate-[0.5deg]
-                                       group-hover:saturate-110"
-                            />
-
-                        </div>
-
-                        <!-- OVERLAY -->
-                        <div
-                            class="pointer-events-none absolute inset-0
-                                   rounded-[2rem] md:rounded-[1.75rem]
-                                   bg-gradient-to-t
-                                   from-black/60 via-black/20 to-transparent
-                                   opacity-0
-                                   group-hover:opacity-100
-                                   transition duration-700">
-                        </div>
-
-                    </div>
-                    <!-- END CARD -->
-                        
-                    @endforeach
-
-
-
-                </div> --}}
-
-            {{-- </div>
-        </div> --}}
+        </div>
 
     </div>
+    
 
     <br>
     <br>
     <br>
     <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
             <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
             <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
         </svg>
@@ -921,9 +839,9 @@ class="relative min-h-screen flex justify-center
 
 <!-- 🖼️ SECTION 3: MODERN GALLERY -->
 <section id="bank"
-  class="relative min-h-screen flex  justify-center
-         bg-gradient-to-b from-jawa-dark to-[#2a2419]  
-         py-20 overflow-hidden">
+  class="relative min-h-screen flex justify-center
+    bg-gradient-to-b from-[#2a2419] to-jawa-dark  
+    py-20 overflow-hidden">
 
          <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
                     <img src="{{ url('backgroundku/svg.png', []) }}" 
@@ -996,13 +914,13 @@ class="relative min-h-screen flex justify-center
 
                     <!-- BUTTON -->
                     <button onclick="copyToClipboard(this, '{{ $item->nomorrekening }}')"
-                    class="w-full text-sm py-2 rounded-xl mt-2
-                        border border-jawa-gold/40
-                        text-jawa-gold
-                        hover:bg-jawa-gold hover:text-jawa-dark
-                        transition duration-300 flex items-center justify-center gap-2">
-                    <span>Salin Nomor</span>
-                </button>
+                        class="w-full text-sm py-2 rounded-xl mt-2
+                            border border-jawa-gold/40
+                            text-jawa-gold
+                            hover:bg-jawa-gold hover:text-jawa-dark
+                            transition duration-300 flex items-center justify-center gap-2">
+                        <span>Salin Nomor</span>
+                    </button>
                 </div>
                     
                 @endforeach
@@ -1012,10 +930,11 @@ class="relative min-h-screen flex justify-center
         </div>
     
     </div>
+    
 
         <br>
         <div class="absolute bottom-0 left-0 w-full z-20">
-            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
                 <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
                 <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
             </svg>
@@ -1028,8 +947,8 @@ class="relative min-h-screen flex justify-center
 
 <!-- 🖼️ SECTION 3: MODERN GALLERY -->
 <section id="comments"
-  class="relative min-h-screen flex  justify-center
-         bg-gradient-to-b from-[#2a2419] to-jawa-dark
+  class="relative min-h-screen flex justify-center
+         bg-gradient-to-b from-jawa-dark to-[#2a2419]
          py-20 overflow-hidden">
 
          <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
@@ -1068,7 +987,7 @@ class="relative min-h-screen flex justify-center
 
     <br>
     <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.3)]">
             <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a241970"/>
             <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
         </svg>
