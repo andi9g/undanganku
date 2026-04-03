@@ -50,6 +50,7 @@ class SebarLive extends Component
                 ->orWhere('whatsapppenerima', 'like', "%$key%");
             });
         })
+        ->orderBy("created_at", "desc")
         ->where('idundangan', $this->idundangan)
         ->paginate(15);
         
