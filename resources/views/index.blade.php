@@ -6,9 +6,11 @@
     <title>Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="{{ asset("backgroundku/thumbnail.JPG") }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" type="image/x-icon">
     <meta property="og:title" content="Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}" />
-    <meta property="og:image" content="{{ asset("backgroundku/thumbnail.JPG") }}" />
+    <meta property="og:description" content="Undangan digital pernikahan {{ $undangan->identitaspengantin->namapengantinwanita }} & {{ $undangan->identitaspengantin->namapengantinpria }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -311,7 +313,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                             <div class="flex flex-col mb-10 mx-auto lg:mx-0 max-w-[280px] sm:max-w-sm md:max-w-md">
                                 <h1 style="font-family: 'Great Vibes', cursive;"
                                     class="text-6xl md:text-8xl text-jawa-beige self-start tracking-normal transition-all duration-700 hover:translate-x-2">
-                                    Vera
+                                    {{ $undangan->identitaspengantin->namapengantinwanita }}
                                 </h1>
 
                                 <span class="text-5xl md:text-7xl text-jawa-gold self-center my-[-10px] md:my-[-30px] -ml-5 z-20 transition-all duration-700" 
