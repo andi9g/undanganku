@@ -26,14 +26,15 @@ class GoogleController extends Controller
             ->user();
             
             // Mencari user berdasarkan email, atau buat baru jika belum ada
-            $user = User::updateOrCreate(
-                ['email' => $googleUser->getEmail()],
-                [
-                    'name' => $googleUser->getName(),
-                    'password' => bcrypt(Str::random(32)),
-                    'email_verified_at' => now(),
-                ]
-            );
+            $user = User::where(['email' => $googleUser->getEmail()])->firstOrFail();
+            // $user = User::updateOrCreate(
+            //     ['email' => $googleUser->getEmail()],
+            //     [
+            //         'name' => $googleUser->getName(),
+            //         'password' => bcrypt(Str::random(32)),
+            //         'email_verified_at' => now(),
+            //     ]
+            // );
 
             // dd($user);
             // 🔐 Bersihkan session sebelum login
