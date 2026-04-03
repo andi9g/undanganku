@@ -8,6 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" sizes="any">
     <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" type="image/svg+xml">
+    <meta property="og:description" content="Dengan penuh kebahagiaan, kami mengundang {{ $penerima->namapenerima ?? 'Bapak/Ibu/Saudara/i' }} untuk hadir dan memberikan doa restu pada momen pernikahan kami." />
     <style>
         html {
             font-size: 15px;
