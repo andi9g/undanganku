@@ -173,11 +173,11 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
             <span class="w-12 h-[1px] bg-jawa-gold"></span>
         </div>
 
-        <p class="text-sm md:text-base text-neutral-300 mb-8 leading-relaxed">
+        {{-- <p class="text-sm md:text-base text-neutral-300 mb-8 leading-relaxed">
             <i>
                 {!! $text2 !!}
             </i>
-        </p>
+        </p> --}}
 
                 
                 <table width="100%" class="mb-7">
