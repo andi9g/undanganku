@@ -638,7 +638,7 @@ class="relative min-h-screen flex justify-center
     <div class="container mx-auto px-6 relative z-10">
 
         <!-- Heading -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-10">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
                 Selamat Datang
             </h2>
@@ -656,22 +656,22 @@ class="relative min-h-screen flex justify-center
     <div class="max-w-5xl mx-auto px-6 py-0">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
             
-            <div class="w-full lg:w-5/12 order-2 lg:order-1 text-center lg:text-right space-y-6">
+            <div class="w-full lg:w-5/12 order-1 lg:order-1 text-center lg:text-right space-y-3">
                 <div class="space-y-3">
                     <div class="inline-block px-3 py-1 border border-jawa-gold/30 rounded-full mb-1">
-                        <span class="text-[10px] tracking-[0.3em] text-jawa-gold uppercase font-bold">Lokasi Resepsi</span>
+                        <span class="text-[13px] tracking-[0.4em] text-jawa-gold uppercase font-bold mb-3">Lokasi Resepsi</span>
                     </div>
                     <h4 class="text-1xl md:text-2xl font-serif text-jawa-beige italic leading-tight">
                         {{ $undangan->lokasi->namalokasi }} <br>
                     </h4>
                 </div>
 
-                <div class="space-y-1 text-jawa-beige/80 text-base md:text-lg font-light leading-relaxed">
+                <div class="space-y-1 text-jawa-beige/80 text-base md:text-lg font-light leading-relaxed mb-4">
                     <p class="font-semibold text-jawa-gold">Alamat Lengkap</p>
                     <p>{{ $undangan->lokasi->alamat }}</p>
                 </div>
 
-                <div class="pt-4">
+                <div class="pt-6">
                     <a href="https://www.google.com/maps/search/?api=1&query={{ $undangan->lokasi->lat }},{{ $undangan->lokasi->long }}" target="_blank" 
                     class="group relative inline-flex items-center gap-3 px-8 py-3 bg-jawa-gold/5 border border-jawa-gold/40 text-jawa-gold overflow-hidden transition-all duration-500 rounded-lg">
                         <span class="absolute inset-0 bg-jawa-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
