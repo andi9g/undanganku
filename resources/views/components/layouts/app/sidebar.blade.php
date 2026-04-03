@@ -17,8 +17,7 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     <flux:navlist.item icon="envelope" :href="route('undangan')" :current="request()->is('undangan*')" wire:navigate>{{ __('Undangan Digital') }}</flux:navlist.item>
-                    <flux:navlist.item icon="chat-bubble-left-ellipsis" :href="route('qa')" :current="request()->routeIs('qa')" wire:navigate>{{ __('Q&A Demo') }}</flux:navlist.item>
-                    <flux:navlist.item icon="user" :href="route('auth-demo')" :current="request()->routeIs('auth-demo')" wire:navigate>{{ __('Auth Demo') }}</flux:navlist.item>
+                    
                 </flux:navlist.group>
 
                 
