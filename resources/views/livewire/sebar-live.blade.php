@@ -79,7 +79,7 @@
                         <div class="flex items-center gap-2">
                             @php
                                 // Menggunakan %0A untuk baris baru agar rapi saat dibaca
-                                $urlUndangan = asset("share/{$undangan->kode}/{$item->kodepenerima}");
+                                $urlUndangan = asset("share/{$undangan->kode}/{$item->kodepenerima}")"?v=1";
 
                                 // Format Tanggal agar lebih cantik (Contoh: Minggu, 20 Oktober 2024)
                                 $tanggalFormat = \Carbon\Carbon::parse($undangan->tanggal)->translatedFormat('l, d F Y');
