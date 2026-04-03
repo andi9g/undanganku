@@ -6,6 +6,7 @@
     <title>Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset("backgroundku/thumbnail.JPG") }}" type="image/x-icon">
     <meta property="og:title" content="Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}" />
     <meta property="og:image" content="{{ asset("backgroundku/thumbnail.JPG") }}" />
     <meta property="og:type" content="website" />
