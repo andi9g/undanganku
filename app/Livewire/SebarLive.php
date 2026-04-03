@@ -96,7 +96,7 @@ class SebarLive extends Component
         $undangan = undanganM::where(["idundangan" => $this->idundangan, "iduser" => Auth::user()->iduser])->first();
         $sebarundangan = sebarundanganM::where("kodepenerima",$kode)->first();
         $urlUndangan = asset("share/{$undangan->kode}/{$kode}")."?v=1";
-
+        \Carbon\Carbon::locale("id");
         $tanggalFormat = \Carbon\Carbon::parse($undangan->tanggal)->translatedFormat('l, d F Y');
         $nama = $sebarundangan->namapenerima ?? 'Bapak/Ibu/Saudara/i';
 
