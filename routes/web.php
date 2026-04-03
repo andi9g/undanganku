@@ -11,6 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 Route::get('mengundang/{kode}/{kodepenerima}', [showC::class, "index"])->name('undanganku');
+Route::get('share/{kode}/{kodepenerima}', [showC::class, "share"])->name('share.undanganku');
 
 Route::view('dashboard', 'pages.dashboard')
     ->middleware(['auth', 'verified'])

@@ -11,6 +11,20 @@ class showC extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function share(Request $request, $kode, $kodepenerima)
+    {
+        $undangan = undanganM::where('kode', $kode)->firstOrFail();
+        $penerima = sebarundanganM::where(['kodepenerima' => $kodepenerima, "idundangan" => $undangan->idundangan])->firstOrFail();
+
+        return view('share', [
+            'undangan' => $undangan,
+            "penerima" => $penerima,
+            "kode" => $kode,
+            "kodepenerima" => $kodepenerima,
+        ]);
+
+    }
+
     public function index(Request $request, $kode, $kodepenerima)
     {
         $undangan = undanganM::where('kode', $kode)->firstOrFail();
