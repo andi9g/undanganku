@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <meta property="og:title" content="Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}" />
-    <meta property="og:image" content="{{ asset('storage/'. ($undangan->identitaspengantin->fotopengantin ?? 'default.jpg')) }}" />
+    <meta property="og:image" content="{{ asset("backgroundku/thumbnail.JPG") }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
