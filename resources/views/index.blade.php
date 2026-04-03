@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Undangan Digital - {{ $penerima->namapenerima ?? 'Tamu Undangan' }}</title>
+    <title>Undangan Digital | {{ $undangan->identitaspengantin->namapengantinwanita }} & {{ $undangan->identitaspengantin->namapengantinpria }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" sizes="any">
