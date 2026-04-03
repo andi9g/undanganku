@@ -941,7 +941,7 @@ class="relative min-h-screen flex justify-center
                 
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Wdding Gift
+                Wedding Gift
             </h3>
             <div class="flex justify-center items-center gap-4 mt-6">
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
