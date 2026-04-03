@@ -110,7 +110,7 @@ class SebarLive extends Component
 
     Yang insyaAllah akan dilaksanakan pada:
     📅 {$tanggalFormat}
-    📍 {$undangan->namalokasi} ({$undangan->alamat})
+    📍 {$undangan->lokasi->namalokasi} ({$undangan->lokasi->alamat})
 
     Untuk informasi lengkap mengenai waktu dan lokasi, silakan mengakses undangan digital kami melalui tautan berikut:
     🔗 {$urlUndangan}
