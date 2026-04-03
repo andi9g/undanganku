@@ -16,6 +16,7 @@
                            border border-jawa-gold/20
                            focus:outline-none focus:border-jawa-gold
                            placeholder:text-white/40">
+                <flux:error name="namapenerima" />
             </div>
 
             <!-- Pesan -->
@@ -27,6 +28,8 @@
                            border border-jawa-gold/20
                            focus:outline-none focus:border-jawa-gold
                            placeholder:text-white/40"></textarea>
+
+                <flux:error name="pesan" />
             </div>
 
             <!-- Button -->

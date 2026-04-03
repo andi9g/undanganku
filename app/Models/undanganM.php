@@ -49,4 +49,8 @@ class undanganM extends Model
     {
         return $this->hasMany(pasfotoM::class, 'idundangan', 'idundangan');
     }
+    public function agenda()
+    {
+        return $this->hasMany(agendaM::class, 'idundangan', 'idundangan');
+    }
 }

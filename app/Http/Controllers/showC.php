@@ -17,11 +17,20 @@ class showC extends Controller
         $penerima = sebarundanganM::where(['kodepenerima' => $kodepenerima, "idundangan" => $undangan->idundangan])->firstOrFail();
 
         $text1 = [
-            "Tanpa mengurangi rasa hormat, merupakan suatu kehormatan bagi kami jika Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu bagi memulai perjalanan baru kami.",
-            "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Anda untuk menjadi bagian dari momen bahagia kami. Kehadiran Anda adalah restu terindah bagi kami.",
-            "Dengan penuh rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu di hari pernikahan kami. Kehadiran Anda akan menjadi anugerah yang sangat berarti bagi kami.",
-            "Tanpa mengurangi rasa hormat, kami dengan tulus mengundang Anda untuk hadir dan memberikan doa restu di hari pernikahan kami. Kehadiran Anda akan menjadi kebahagiaan tersendiri bagi kami.",
-            "Dengan penuh rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu di hari pernikahan kami. Kehadiran Anda akan menjadi anugerah yang sangat berarti bagi kami.",
+            "Dengan memohon rahmat dan ridho Allah SWT <br>
+            Izinkan kami bermaksud berbagi kebahagiaan dengan menyelenggarakan pernikahan putra-putri kami. Insyaallah akan diselenggarakan pada:"
+        ];
+        $lokasi = [
+            "Yang akan berlangsung di kediaman Bpk. Ratoni dan Ibu Carsiyah <br>
+            (Kp. Lembah Cahaya, RT02/RW02)"
+        ];
+        $text2 = [
+            "Tiada yang dapat terungkap selain ucap syukur dari lubuk hati yang paling dalam apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada mempelai,<br>
+            Atas kehadirannya kami ucapkan terimakasih"
+        ];
+        $textbank = [
+            "Doa restu dari Bapak/Ibu/Saudara/i adalah anugerah terindah bagi kami. <br>
+Jika berkenan memberikan tanda kasih, dapat disalurkan melalui rekening berikut."
         ];
 
         $doas1 = [
@@ -70,7 +79,10 @@ class showC extends Controller
             'doas' => $doas1,
             "penerima" => $penerima,
             "kode" => $kode,
-            "kodepenerima" => $kodepenerima
+            "kodepenerima" => $kodepenerima,
+            "lokasi" => $lokasi[array_rand($lokasi)],
+            "text2" => $text2[array_rand($text2)],
+            "textbank" => $textbank[array_rand($textbank)]
         ]);
     }
 

@@ -9,6 +9,8 @@
     <meta property="og:title" content="Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}" />
     <meta property="og:image" content="{{ asset('storage/'. $undangan->identitaspengantin->fotopengantin??'') }}" />
     <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <style>
         html {
             font-size: 15px;
@@ -176,7 +178,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
         <p class="text-sm md:text-base text-neutral-300 mb-8 leading-relaxed">
             <i>
-                {{ $text1 }}
+                {!! $text2 !!}
             </i>
         </p>
 
@@ -251,7 +253,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 </div>
 
 <audio id="bgMusic" loop>
-    <source src="{{ url('backgroundku/music1.mp3', []) }}" type="audio/mpeg">
+    <source src="{{ url('backgroundku/music.mpeg', []) }}" type="audio/mpeg">
 </audio>
 
 <button
@@ -434,19 +436,65 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                         <div class="absolute -inset-2 border border-jawa-gold/20 rounded-xl scale-95 group-hover:scale-100 transition-transform duration-700"></div>
                         <div class="relative bg-black/20 p-8 rounded-xl text-center">
                             <p class="text-jawa-gold-light text-sm tracking-[0.3em] uppercase mb-4 font-semibold">Akad & Resepsi</p>
-                            <p class="text-jawa-beige font-serif text-3xl md:text-4xl mb-2"> {{ strtoupper(\Carbon\Carbon::parse($undangan->tanggal)->isoFormat("dddd")) }}</p>
-                            <p class="text-jawa-gold text-4xl md:text-5xl font-bold mb-6 tracking-tight">{{ \Carbon\Carbon::parse($undangan->tanggal)->isoFormat("DD MMMM YYYY") }}</p>
-                            <div class="h-[1px] w-1/2 bg-gradient-to-r from-transparent via-jawa-gold to-transparent mx-auto mb-6"></div>
                             <h2 class="text-2xl md:text-3xl text-jawa-gold font-arabic leading-loose">
                                 بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
                             </h2>
-                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
-                                {{ $text1 }}
+                            <p class="text-jawa-beige/60 italic font-light leading-relaxed mb-5">
+                                {!! $text1 !!}
                             </p>
+
+
+
+
+                            
+                            <p class="text-jawa-beige font-serif text-2xl md:text-3xl mb-2"> {{ strtoupper(\Carbon\Carbon::parse($undangan->tanggal)->isoFormat("dddd")) }}</p>
+                            <p class="text-jawa-gold text-3xl md:text-4xl font-bold mb-6 tracking-tight">{{ \Carbon\Carbon::parse($undangan->tanggal)->isoFormat("DD MMMM YYYY") }}</p>
+                                <div class="relative grid grid-cols-2 gap-6 text-sm md:text-base mb-6">
+
+                                    <!-- Garis Tengah -->
+                                    <div class="absolute left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-jawa-gold/40 to-transparent"></div>
+
+                                    <!-- AKAD -->
+                                    <div class="text-right px-4">
+                                        <p class="text-jawa-gold uppercase tracking-widest text-xs mb-2">Akad</p>
+                                        <p class="text-jawa-beige font-semibold">
+                                            Pukul {{ $undangan->agenda->where("agenda", "akad")->first()?->jam ?? 'NULL' }} WIB
+                                        </p>
+                                        {{-- <p class="text-jawa-beige/70 text-xs leading-relaxed mt-1">
+                                            {{ $undangan->alamat_akad ?? 'Lokasi Akad' }}
+                                        </p> --}}
+                                    </div>
+
+                                    <!-- RESEPSI -->
+                                    <div class="text-left px-4">
+                                        <p class="text-jawa-gold uppercase tracking-widest text-xs mb-2">Resepsi</p>
+                                        <p class="text-jawa-beige font-semibold">
+                                            Pukul {{ $undangan->agenda->where("agenda", "resepsi")->first()?->jam ?? 'NULL' }} WIB s.d Selesai
+                                        </p>
+                                        {{-- <p class="text-jawa-beige/70 text-xs leading-relaxed mt-1">
+                                            {{ $undangan->alamat_resepsi ?? 'Lokasi Resepsi' }}
+                                        </p> --}}
+                                    </div>
+                                    
+
+                                </div>
+
+                                
+
+                            <div class="h-[1px] w-1/2 bg-gradient-to-r from-transparent via-jawa-gold to-transparent mx-auto mb-6"></div>
+                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
+                                {!! $lokasi !!}
+                            </p>
+                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
+                                {!! $text2 !!}
+                            </p>
+                            
+                            
                         </div>
                     </div>
                 </div>
-
+                
+                <br>
                 <br>
                 <div class="absolute bottom-0 left-0 w-full z-20">
                     <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
@@ -569,168 +617,16 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
 
 
-<section id="gallery"
-  class="relative min-h-screen flex justify-center
-         bg-gradient-to-b from-jawa-dark to-[#2a2419]
-         py-20 overflow-hidden">
 
-    <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
-                    <img src="{{ url('backgroundku/svg.png', []) }}" 
-                        alt="Javanese Ornament Left"
-                        data-aos="zoom-in" data-aos-delay="300" 
-                        class="w-full h-auto object-contain">
-                </div>
-
-    <div class="container mx-auto px-6 relative z-10">
-
-        <!-- Heading -->
-        <div class="text-center mb-14">
-            <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Selamat Datang
-            </h2>
-            <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Bingkai Kenangan
-            </h3>
-            <div class="flex justify-center items-center gap-4 mt-6">
-                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
-                <div class="text-jawa-gold">✦</div>
-                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
-            </div>
-        </div>
-
-        <!-- CENTERING WRAPPER -->
-        <div class="flex justify-center md:mx-10">
-
-            <!-- MAX WIDTH -->
-            <div class="max-w-7xl w-full">
-
-                <div class="relative w-full h-[420px] md:h-[500] flex items-center justify-center overflow-hidden">
-
-                    <!-- Tombol Kiri -->
-    <button onclick="prev()" type="button"
-        class="absolute left-0 md:left-10 z-50 w-10 h-10 md:w-15 md:h-15 text-xl rounded-full  backdrop-blur-m
-               flex items-center justify-center text-jawa-dark text-jawa-gold/80
-               hover:bg-black transition bg-[#3a3a3a79]
-               border md:border-jawa-gold/40 border-jawa-gold/80
-                md:text-jawa-gold
-                md:hover:bg-jawa-gold md:hover:text-jawa-dark
-                duration-300 flex items-center justify-center gap-2">
-        <flux:icon.chevron-double-left />
-    </button>
-
-    <div id="carousel"
-        class="relative w-[320px] md:w-[380] h-[400px] md:h-[500] flex items-center justify-center"
-        style="perspective: 1400px;">
-        
-         @foreach ($undangan->gallery()->get() as $item)
-         <div class="card"><img
-                                loading="lazy"
-                                data-aos="zoom-out" data-aos-delay="300"
-                                src="{{ asset('storage/'. $item->fotogallery) }}"
-                                class="w-full h-auto object-cover
-                                       scale-105
-                                       transition-all duration-700 ease-out
-                                       group-hover:scale-110
-                                       group-hover:rotate-[0.5deg]
-                                       group-hover:saturate-110"
-                            />></div>
-         @endforeach
-
-        <!-- Tombol Kanan -->
-   
-    </div>
-    <button onclick="next()" type="button"
-        class="absolute right-0 md:right-15 z-50 w-10 h-10 md:w-15 md:h-15 text-xl rounded-full  backdrop-blur-m
-               flex items-center justify-center transition bg-[#3a3a3a79] text-jawa-gold/80
-               border md:border-jawa-gold/40 border-jawa-gold/80
-                md:text-jawa-gold
-                md:hover:bg-jawa-gold md:hover:text-jawa-dark
-                duration-300 flex items-center justify-center gap-2">
-        <flux:icon.chevron-double-right />
-    </button>
-    </div>
-
-    
-
-
-                {{-- <!-- MASONRY -->
-                <div class="inline-block columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-5 space-y-4 md:space-y-5">
-
-                    @foreach ($undangan->gallery()->get() as $item)
-                    <!-- CARD -->
-                    <div
-                        class="break-inside-avoid group relative
-                               rounded-[2rem] md:rounded-[1.75rem]
-                               border border-jawa-gold/20
-                               bg-white/5 backdrop-blur-sm
-                               overflow-hidden
-                               transition-all duration-700 ease-out
-                               hover:-translate-y-2
-                               hover:border-jawa-gold
-                               hover:shadow-[0_30px_60px_-15px_rgba(197,160,89,0.45)]
-                               active:scale-[0.97]
-                               animate-[fadeUp_0.9s_ease-out_both]"
-                    >
-
-                        <!-- IMAGE FRAME -->
-                        <div class="overflow-hidden rounded-[1.85rem] md:rounded-[1.6rem]">
-
-                            <img
-                                loading="lazy"
-                                data-aos="zoom-out" data-aos-delay="300"
-                                src="{{ asset('storage/'. $item->fotogallery) }}"
-                                class="w-full h-auto object-cover
-                                       scale-105
-                                       transition-all duration-700 ease-out
-                                       group-hover:scale-110
-                                       group-hover:rotate-[0.5deg]
-                                       group-hover:saturate-110"
-                            />
-
-                        </div>
-
-                        <!-- OVERLAY -->
-                        <div
-                            class="pointer-events-none absolute inset-0
-                                   rounded-[2rem] md:rounded-[1.75rem]
-                                   bg-gradient-to-t
-                                   from-black/60 via-black/20 to-transparent
-                                   opacity-0
-                                   group-hover:opacity-100
-                                   transition duration-700">
-                        </div>
-
-                    </div>
-                    <!-- END CARD -->
-                        
-                    @endforeach
-
-
-
-                </div> --}}
-
-            </div>
-        </div>
-
-    </div>
-
-    <br>
-    <div class="absolute bottom-0 left-0 w-full z-20">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
-            <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
-            <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
-        </svg>
-    </div>
-
-</section>
 
 
 
 <!-- 🖼️ SECTION 3: MODERN GALLERY -->
 <section id="maps"
-           class="relative min-h-screen flex justify-center
-         bg-gradient-to-b from-[#2a2419] to-jawa-dark  
+class="relative min-h-screen flex justify-center
+         bg-gradient-to-b from-jawa-dark to-[#2a2419]
          py-20 overflow-hidden">
+    
 
     <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
                     <img src="{{ url('backgroundku/svg.png', []) }}" 
@@ -833,6 +729,197 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 </section>
 
 
+<section id="gallery"
+    class="relative min-h-screen flex justify-center
+    bg-gradient-to-b from-[#2a2419] to-jawa-dark  
+    py-20 overflow-hidden">
+
+    <div class="absolute -top-2 md:-top-6 left-1/2 -translate-x-1/2 max-w-2xl md:max-w-2xl opacity-30 animate-float-slow pointer-events-none z-0">
+                    <img src="{{ url('backgroundku/svg.png', []) }}" 
+                        alt="Javanese Ornament Left"
+                        data-aos="zoom-in" data-aos-delay="300" 
+                        class="w-full h-auto object-contain">
+                </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+
+        <!-- Heading -->
+        <div class="text-center mb-14">
+            <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
+                Selamat Datang
+            </h2>
+            <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
+                Bingkai Kenangan
+            </h3>
+            <div class="flex justify-center items-center gap-4 mt-6">
+                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
+                <div class="text-jawa-gold">✦</div>
+                <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
+            </div>
+        </div>
+
+        <!-- CENTERING WRAPPER -->
+        <div class="flex justify-center md:mx-10 mb-10">
+
+            <!-- MAX WIDTH -->
+            {{-- <div class="max-w-7xl w-full">
+
+                <div class="relative w-full h-[420px] md:h-[500] flex items-center justify-center overflow-hidden"> --}}
+
+                    <!-- Tombol Kiri -->
+    {{-- <button onclick="prev()" type="button"
+        class="absolute left-0 md:left-10 z-50 w-10 h-10 md:w-15 md:h-15 text-xl rounded-full  backdrop-blur-m
+               flex items-center justify-center text-jawa-dark text-jawa-gold/80
+               hover:bg-black transition bg-[#3a3a3a79]
+               border md:border-jawa-gold/40 border-jawa-gold/80
+                md:text-jawa-gold
+                md:hover:bg-jawa-gold md:hover:text-jawa-dark
+                duration-300 flex items-center justify-center gap-2">
+        <flux:icon.chevron-double-left />
+    </button>
+
+    <div id="carousel"
+        class="relative w-[320px] md:w-[380] h-[400px] md:h-[500] flex items-center justify-center"
+        style="perspective: 1400px;">
+        
+         @foreach ($undangan->gallery()->get() as $item)
+         <div class="card"><img
+                                loading="lazy"
+                                data-aos="zoom-out" data-aos-delay="300"
+                                src="{{ asset('storage/'. $item->fotogallery) }}"
+                                class="w-full h-auto object-cover
+                                    scale-105
+                                    opacity-0 blur-sm
+                                    transition-all duration-700 ease-out
+                                    group-hover:scale-110
+                                    group-hover:rotate-[0.5deg]
+                                    group-hover:saturate-110"
+                                onload="
+                                    this.style.opacity=1;
+                                    this.style.filter='blur(0)';
+                                    this.previousElementSibling.style.display='none';
+                                "
+                            /></div>
+         @endforeach
+
+        <!-- Tombol Kanan -->
+   
+    </div>
+    <button onclick="next()" type="button"
+        class="absolute right-0 md:right-15 z-50 w-10 h-10 md:w-15 md:h-15 text-xl rounded-full  backdrop-blur-m
+               flex items-center justify-center transition bg-[#3a3a3a79] text-jawa-gold/80
+               border md:border-jawa-gold/40 border-jawa-gold/80
+                md:text-jawa-gold
+                md:hover:bg-jawa-gold md:hover:text-jawa-dark
+                duration-300 flex items-center justify-center gap-2">
+        <flux:icon.chevron-double-right />
+    </button>
+    </div> --}}
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+        @foreach($undangan->gallery()->get() as $item)
+        <div class="relative overflow-hidden rounded-xl bg-gray-200 group"
+        data-aos="zoom-in" data-aos-delay="300">
+
+            <!-- Skeleton -->
+            <div class="absolute inset-0 animate-pulse bg-gray-300"></div>
+
+            <img
+                src="{{ asset('storage/'. $item->fotogallery) }}"
+                loading="lazy"
+                
+                class="w-full h-full object-cover
+                    opacity-0 blur-sm scale-105
+                    transition-all duration-700 ease-out
+                    group-hover:scale-110 group-hover:saturate-110"
+                onload="
+                    this.style.opacity=1;
+                    this.style.filter='blur(0)';
+                    this.previousElementSibling.style.display='none';
+                "
+            >
+        </div>
+        @endforeach
+
+    </div>
+    
+
+
+                {{-- <!-- MASONRY -->
+                <div class="inline-block columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-5 space-y-4 md:space-y-5">
+
+                    @foreach ($undangan->gallery()->get() as $item)
+                    <!-- CARD -->
+                    <div
+                        class="break-inside-avoid group relative
+                               rounded-[2rem] md:rounded-[1.75rem]
+                               border border-jawa-gold/20
+                               bg-white/5 backdrop-blur-sm
+                               overflow-hidden
+                               transition-all duration-700 ease-out
+                               hover:-translate-y-2
+                               hover:border-jawa-gold
+                               hover:shadow-[0_30px_60px_-15px_rgba(197,160,89,0.45)]
+                               active:scale-[0.97]
+                               animate-[fadeUp_0.9s_ease-out_both]"
+                    >
+
+                        <!-- IMAGE FRAME -->
+                        <div class="overflow-hidden rounded-[1.85rem] md:rounded-[1.6rem]">
+
+                            <img
+                                loading="lazy"
+                                data-aos="zoom-out" data-aos-delay="300"
+                                src="{{ asset('storage/'. $item->fotogallery) }}"
+                                class="w-full h-auto object-cover
+                                       scale-105
+                                       transition-all duration-700 ease-out
+                                       group-hover:scale-110
+                                       group-hover:rotate-[0.5deg]
+                                       group-hover:saturate-110"
+                            />
+
+                        </div>
+
+                        <!-- OVERLAY -->
+                        <div
+                            class="pointer-events-none absolute inset-0
+                                   rounded-[2rem] md:rounded-[1.75rem]
+                                   bg-gradient-to-t
+                                   from-black/60 via-black/20 to-transparent
+                                   opacity-0
+                                   group-hover:opacity-100
+                                   transition duration-700">
+                        </div>
+
+                    </div>
+                    <!-- END CARD -->
+                        
+                    @endforeach
+
+
+
+                </div> --}}
+
+            {{-- </div>
+        </div> --}}
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="absolute bottom-0 left-0 w-full z-20">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_-10px_10px_rgba(0,0,0,0.5)]">
+            <path d="M0 120L1440 120V40L720 100L0 40V120Z" fill="#2a2419"/>
+            <path d="M0 40L720 100L1440 40" stroke="#c5a059" stroke-width="1" opacity="0.5"/>
+        </svg>
+    </div>
+
+</section>
+
+
 
 
 <!-- 🖼️ SECTION 3: MODERN GALLERY -->
@@ -864,10 +951,18 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                 <div class="text-jawa-gold">✦</div>
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
             </div>
+
+            <p class="text-jawa-beige/60 italic font-light leading-relaxed mb-5">
+                {!! $textbank !!}
+            </p>
         </div>
+
+         
+        
 
         <!-- GRID -->
         <div class="flex justify-center">
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
 
                 @foreach ($undangan->rekening()->get() as $item)
@@ -880,10 +975,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                             hover:shadow-[0_20px_40px_-10px_rgba(197,160,89,0.4)]">
 
                     <!-- TOP -->
-                    <div class="flex items-center gap-4 mx-5">
+                    <div class="flex items-center gap-3 mx-3">
 
                         <!-- ICON -->
-                        <div class="w-16 h-16 flex items-center justify-center
+                        <div class="w-15 h-15 flex items-center justify-center
                                     rounded-2xl bg-white/10 shrink-0">
                             <img src="{{ $item->urlgambar }}"
                             data-aos="zoom-out" data-aos-delay="300"
@@ -892,8 +987,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
                         <!-- TEXT -->
                         <div>
-                            <p class="text-white font-semibold text-lg">{{ $item->namabank }}</p>
-                            <p class="text-jawa-beige text-lg font-mono tracking-wide">
+                            <p class="text-white font-semibold text-md">{{ $item->namabank }}</p>
+                            <p class="text-jawa-beige text-md font-mono tracking-wide">
                                 {{ $item->nomorrekening }}
                             </p>
                             <p class="text-jawa-beige/70 text-sm">

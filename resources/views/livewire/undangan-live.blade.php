@@ -102,6 +102,7 @@
                 <flux:table.cell>
                     <flux:button variant='primary' color='blue' href="{{ route('detail-undangan', $item->idundangan) }}" icon="eye">Detail Undangan</flux:button>
                     <flux:button variant='primary' color='green' href="{{ route('sebar-undangan', $item->idundangan) }}" icon="envelope">Sebar Undangan</flux:button>
+                    <flux:button variant='primary' color='info' href="{{ route('comment-undangan', $item->idundangan) }}" icon="chat-bubble-bottom-center-text">Comment</flux:button>
                 </flux:table.cell>
             </flux:table.row>
                 

@@ -23,7 +23,11 @@ class informasipengantinC extends Controller
     {
         return view('pages.sebarundangan', compact('idundangan'));
     }
-
+        
+    public function comment($idundangan)
+    {
+        return view('pages.comment', compact('idundangan'));
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     route::get('undangan', [informasipengantinC::class, 'index'])->name('undangan');
     route::get('undangan/{idundangan}/detail', [informasipengantinC::class, 'informasipengantin'])->name('detail-undangan');
     route::get('undangan/{idundangan}/sebar', [informasipengantinC::class, 'sebar'])->name('sebar-undangan');
+    route::get('undangan/{idundangan}/comment', [informasipengantinC::class, 'comment'])->name('comment-undangan');
     Volt::route('qa', 'qa-demo')->name('qa');
     Volt::route('auth-demo', 'auth-demo')->name('auth-demo');
 });

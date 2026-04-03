@@ -48,6 +48,7 @@ class KomentarLive extends Component
             $query->where('namakomentar', 'like', '%' . $this->search . '%')
                   ->orWhere('komentar', 'like', '%' . $this->search . '%');
         })
+        ->where("tampilkan", 1)
         ->orderBy("idkomentar", "desc")->paginate(5);
 
         $komentar->appends(['search', 'limit']);
@@ -65,6 +66,8 @@ class KomentarLive extends Component
         $this->validate([
             'namapenerima' => 'required|string|max:255',
             'pesan' => 'required|string|max:200',
+        ], [
+            "required" => "Tidak boleh kosong!",
         ]);
 
         komentarM::create([
@@ -79,7 +82,7 @@ class KomentarLive extends Component
         ]);
         
         LivewireAlert::title('Pesan Terkirim')
-        ->text('Pesan Anda telah berhasil dikirim.')
+        ->text('Pesan Anda telah berhasil dikirim. Pesan akan ditampilkan saat di Approve admin')
         ->success()
         ->toast()
         ->position('top-end')

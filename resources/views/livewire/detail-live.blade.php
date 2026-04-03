@@ -8,6 +8,7 @@
                 class="w-max min-w-full px-4 "
             >
                 <flux:tab name="home" icon="home"> Halaman Utama</flux:tab>
+                <flux:tab name="agenda" icon="calendar">Agenda</flux:tab>
                 <flux:tab name="pasfoto" icon="user-circle">Pasfoto</flux:tab>
                 <flux:tab name="gallery" icon="photo">Gallery</flux:tab>
                 <flux:tab name="orangtua" icon="users">Orang Tua</flux:tab>
@@ -17,6 +18,45 @@
         </div>
 
 
+        <flux:tab.panel class="-mt-2 p-5" name="agenda" >
+            <div class="grid grid-cols-2 gap-8">
+                <flux:kanban.card class="p-5">
+                    <form wire:submit="agenda('akad')" class="space-y-5">
+
+                        <flux:heading size="xl" level="2">Akad Nikah</flux:heading>
+                        <flux:menu.separator/>
+    
+    
+                        <flux:input 
+                        label='jam akad' 
+                        placeholder='Masukan jam akad' 
+                        wire:model='jamakad'
+                        type="time"
+                        :invalid="$errors->has('jamakad')"/>
+
+                        <flux:button type="submit" variant="primary" color="blue" class="w-full">UPDATE</flux:button>
+                    </form>
+                </flux:kanban.card>
+                
+                <flux:kanban.card>
+                    <form wire:submit="agenda('resepsi')" class="space-y-5">
+                        <flux:heading size="xl" level="2">Resepsi Nikah</flux:heading>
+                        <flux:menu.separator/>
+                        
+    
+                        <flux:input 
+                        label='Jam Resepsi' 
+                        placeholder='Masukan Jam Resepsi' 
+                        wire:model='jamresepsi'
+                        type="time"
+                        :invalid="$errors->has('jamresepsi')"/>
+
+                        <flux:button type="submit" variant="primary" color="blue" class="w-full">UPDATE</flux:button>
+                    </form>
+
+                </flux:kanban.card>
+            </div>
+        </flux:tab.panel>
 
 
         <flux:tab.panel class="-mt-2 p-5" name="pasfoto" >

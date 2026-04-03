@@ -9,6 +9,7 @@ use App\Models\rekeningM;
 use App\Models\gaunM;
 use App\Models\orangtuaM;
 use App\Models\lokasiM;
+use App\Models\agendaM;
 use App\Models\pasfotoM;
 use App\Models\identitaspengantinM;
 use App\Attributes\Locked;
@@ -38,6 +39,7 @@ class DetailLive extends Component
     public $namalengkappengantinpria, $namalengkappengantinwanita;
     public $statusanakwanita, $statusanakpria;
     public $pasfotol, $pasfotop;
+    public $jamakad, $jamresepsi;
 
     public $photo,$fotopengantin, $gaun;
     public $photos = [];
@@ -82,6 +84,8 @@ class DetailLive extends Component
         $datalokasi = $undangan->lokasi()->first();
         $this->fotopengantin = $identitaspengantin->fotopengantin??"not-available.jpg";
 
+        $this->jamakad = $undangan->agenda->where("agenda", "akad")->first()?->jam;
+        $this->jamresepsi = $undangan->agenda->where("agenda", "resepsi")->first()?->jam;
         $this->namalokasi = $datalokasi->namalokasi ?? "";
         $this->alamat = $datalokasi->alamat ?? "";
 
@@ -110,6 +114,25 @@ class DetailLive extends Component
         ]);
     }
 
+
+    public function agenda($agenda)
+    {
+        $this->validate([
+            'jam'.$agenda => 'required',
+        ],[
+            "required" => "Field wajib di isi.",
+        ]);
+
+        agendaM::updateOrCreate([
+            "idundangan" => $this->idundangan,
+            "agenda" => $agenda,
+        ],[
+            "jam" => $this->{"jam".$agenda},
+        ]);
+
+        LivewireAlert::title('Success')->success()->show();
+        
+    }
 
     public function removePhoto()
     {
