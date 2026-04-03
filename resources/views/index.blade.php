@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <meta property="og:title" content="Undangan Digital - {{ $penerima->namapenerima ?? 'NULL' }}" />
-    <meta property="og:image" content="{{ asset('storage/'. $undangan->identitaspengantin->fotopengantin??'') }}" />
+    <meta property="og:image" content="{{ asset('storage/'. ($undangan->identitaspengantin->fotopengantin ?? 'default.jpg')) }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -113,16 +113,16 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
                     <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Pengantin</span>
                 </a>
 
+                <a href="#maps" class="nav-item min-w-[64px] group flex flex-col items-center">
+                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">📍</span>
+                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Lokasi</span>
+                </a>
+
                 <a href="#gallery" class="nav-item min-w-[64px] group flex flex-col items-center">
                     <span class="text-xl group-hover:scale-110 mt-3 transition-transform">🖼️</span>
                     <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Gallery</span>
                 </a>
 
-                <a href="#maps" class="nav-item min-w-[64px] group flex flex-col items-center">
-                    <span class="text-xl group-hover:scale-110 mt-3 transition-transform">📍</span>
-                    <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Lokasi</span>
-                </a>
-                
                 <a href="#bank" class="nav-item min-w-[64px] group flex flex-col items-center">
                     <span class="text-xl group-hover:scale-110 mt-3 transition-transform">💳</span>
                     <span class="nav-text text-[10px] uppercase tracking-tighter pt-1">Bank</span>
@@ -944,7 +944,7 @@ class="relative min-h-screen flex justify-center
                 Selamat Datang
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Rekening Mempelai
+                Wdding Gift
             </h3>
             <div class="flex justify-center items-center gap-4 mt-6">
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
