@@ -661,7 +661,7 @@ class="relative min-h-screen flex justify-center
                     <div class="inline-block px-3 py-1 border border-jawa-gold/30 rounded-full mb-1">
                         <span class="text-[10px] tracking-[0.3em] text-jawa-gold uppercase font-bold">Lokasi Resepsi</span>
                     </div>
-                    <h4 class="text-3xl md:text-4xl font-serif text-jawa-beige italic leading-tight">
+                    <h4 class="text-1xl md:text-2xl font-serif text-jawa-beige italic leading-tight">
                         {{ $undangan->lokasi->namalokasi }} <br>
                     </h4>
                 </div>
@@ -749,7 +749,7 @@ class="relative min-h-screen flex justify-center
                 Selamat Datang
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
-                Bingkai Kenangan
+                Gallery
             </h3>
             <div class="flex justify-center items-center gap-4 mt-6">
                 <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
