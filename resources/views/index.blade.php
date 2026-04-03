@@ -398,7 +398,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
                 <div class="container mx-auto px-6 relative z-10">
                     <div class="text-center mb-16">
-                        <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">Selamat Datang</h2>
+                        <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse"></h2>
                         <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">Tanggal Acara</h3>
                         <div class="flex justify-center items-center gap-4 mt-6">
                             <div class="w-12 h-[1px] bg-jawa-gold/50"></div>
@@ -478,13 +478,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 
                                 
 
-                            <div class="h-[1px] w-1/2 bg-gradient-to-r from-transparent via-jawa-gold to-transparent mx-auto mb-6"></div>
-                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
-                                {!! $lokasi !!}
-                            </p>
-                            <p class="text-jawa-beige/60 italic font-light leading-relaxed">
-                                {!! $text2 !!}
-                            </p>
+                            
                             
                             
                         </div>
@@ -521,7 +515,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
         <!-- Heading -->
         <div class="text-center mb-16">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Selamat Datang
+                
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
                 Pengantin
@@ -637,7 +631,7 @@ class="relative min-h-screen flex justify-center
         <!-- Heading -->
         <div class="text-center mb-10">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Selamat Datang
+                
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
                 LOKASI
@@ -743,7 +737,7 @@ class="relative min-h-screen flex justify-center
         <!-- Heading -->
         <div class="text-center mb-14">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Selamat Datang
+                
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
                 Gallery
@@ -938,7 +932,7 @@ class="relative min-h-screen flex justify-center
         <!-- Heading -->
         <div class="text-center mb-16">
             <h2 class="text-xs font-bold tracking-[0.6em] text-jawa-gold uppercase mb-4 animate-pulse">
-                Selamat Datang
+                
             </h2>
             <h3 class="text-4xl md:text-6xl font-serif text-jawa-beige italic">
                 Wdding Gift
