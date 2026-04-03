@@ -6,8 +6,7 @@
     <title>Undangan Digital | {{ $undangan->identitaspengantin->namapengantinwanita }} & {{ $undangan->identitaspengantin->namapengantinpria }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" sizes="any">
-    <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset("backgroundku/thumbnail.jpg") }}?v={{ time() }}">
     <meta property="og:title" content="Undangan Digital | {{ $undangan->identitaspengantin->namapengantinwanita }} & {{ $undangan->identitaspengantin->namapengantinpria }}" />
     <meta property="og:description" content="Dengan penuh kebahagiaan, kami mengundang {{ $penerima->namapenerima ?? 'Bapak/Ibu/Saudara/i' }} untuk hadir dan memberikan doa restu pada momen pernikahan kami." />
     <meta property="og:url" content="{{ url()->current() }}" />
