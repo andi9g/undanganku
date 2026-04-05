@@ -14,7 +14,7 @@
             <flux:table.rows wire:key="komentar-{{ $item->idkomentar }}">
                 <flux:table.cell>{{ $loop->iteration + $komentar->firstItem() - 1  }}</flux:table.cell>
                 <flux:table.cell>{{ $item->namakomentar }}</flux:table.cell>
-                <flux:table.cell>{{ $item->komentar }}</flux:table.cell>
+                <flux:table.cell class="whitespace-normal">{{ $item->komentar }} </flux:table.cell>
                 <flux:table.cell>
                     @if ($item->tampilkan == 0)
                         <flux:badge color="red" variant="pill">Ditunda</flux:badge>
