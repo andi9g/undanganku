@@ -16,17 +16,17 @@
                 <flux:table.cell>{{ $item->namakomentar }}</flux:table.cell>
                 <flux:table.cell>{{ $item->komentar }}</flux:table.cell>
                 <flux:table.cell>
-                    @if ($item->tampilkan ===0)
+                    @if ($item->tampilkan === false)
                         <flux:badge color="red" variant="pill">Ditunda</flux:badge>
-                    @elseif($item->tampilkan === 1)
+                    @elseif($item->tampilkan === true)
                         <flux:badge color="green" variant="pill">Tampil</flux:badge>
                     @endif
                 </flux:table.cell>
                 <flux:table.cell>
-                    @if ($item->tampilkan === 0)
+                    @if ($item->tampilkan === false)
                     <flux:checkbox wire:change="tampil({{ $item->idkomentar }})" />
                         
-                    @elseif($item->tampilkan === 1)
+                    @elseif($item->tampilkan === true)
                     <flux:checkbox checked wire:change="tampil({{ $item->idkomentar }})" />
                     @endif
                 </flux:table.cell>
